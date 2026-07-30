@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -10,10 +10,16 @@ import {
   ArrowTrendingUpIcon,
   ChartBarIcon,
   EyeIcon,
-  HeartIcon,
+  HeartIcon as HeartOutlineIcon,
   PaperAirplaneIcon,
   ChartBarSquareIcon,
 } from "@heroicons/react/24/outline";
+import { HeartIcon as HeartSolidIcon } from "@heroicons/react/24/solid";
+
+type LikePosition = {
+  x: number;
+  y: number;
+};
 
 const testimonials = [
   {
@@ -41,6 +47,9 @@ const testimonials = [
 
 export default function BentoSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const [isLiked, setIsLiked] = useState(false);
+  // const [isDoubleClicked, setIsDoubleClicked] = useState(false);
+  const [likePosition, setLikePosition] = useState<LikePosition | null>(null);
 
   // useGSAP(
   //   () => {
@@ -113,6 +122,20 @@ export default function BentoSection() {
     },
   );
 
+  function handleDoubleClick(event: React.MouseEvent<HTMLElement, MouseEvent>) {
+    const card = event.currentTarget.getBoundingClientRect();
+    setIsLiked(true);
+
+    setLikePosition({
+      x: event.clientX - card.left,
+      y: event.clientY - card.top,
+    });
+
+    window.setTimeout(() => {
+      setLikePosition(null);
+    }, 700);
+  }
+
   return (
     <section
       ref={sectionRef}
@@ -120,10 +143,31 @@ export default function BentoSection() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:h-150 lg:grid-cols-[0.82fr_1fr_1fr] lg:grid-rows-6 lg:gap-4 ">
-          {/* Left reels card */}
-          <article className="bento-card marketing-bento-card relative min-h-125 overflow-hidden rounded-2xl bg-neutral-200 shadow-[0_4px_12px_rgba(0,0,0,0.14)] md:col-span-2 lg:col-span-1 lg:row-span-6 lg:min-h-0">
+          {/* Reels card */}
+          <article
+            onDoubleClick={handleDoubleClick}
+            className="bento-card marketing-bento-card relative min-h-125 overflow-hidden rounded-2xl bg-neutral-200 shadow-[0_4px_12px_rgba(0,0,0,0.14)] md:col-span-2 lg:col-span-1 lg:row-span-6 lg:min-h-0"
+          >
+            {/* like animation */}
+            <div>
+              {likePosition && (
+                <HeartSolidIcon
+                  className="animate-ping pointer-events-none absolute top-40 left-20 z-20 rotate-6 h-20 w-20 text-red-500"
+                  style={{
+                    left: likePosition.x,
+                    top: likePosition.y,
+                  }}
+                />
+              )}
+            </div>
+
+            {/* 
+              purple - #7A3AC6
+              red - #F66347
+            */}
+
             <Image
-              src="/images/marketing-bento/social-post.jpg"
+              src="/images/insta-img.jpg"
               alt="Social media campaign post"
               fill
               priority
@@ -136,27 +180,36 @@ export default function BentoSection() {
             <div className="absolute right-0 bottom-0 left-0 px-4 pb-4">
               <div className="flex items-center gap-4 text-[12px] font-medium text-white">
                 <span className="flex items-center gap-1">
-                  <EyeIcon className="h-4 w-4" />
+                  <EyeIcon className="h-6 w-6" />
                   <span data-counter="256" data-suffix="K">
                     256K
                   </span>
                 </span>
 
                 <span className="flex items-center gap-1">
-                  <HeartIcon className="h-4 w-4" />
+                  <div
+                    onClick={() => {
+                      setIsLiked((prev) => !prev);
+                      // handleDoubleClick();
+                    }}
+                  >
+                    {isLiked ? (
+                      <HeartSolidIcon className="h-6 w-6 text-red-500" />
+                    ) : (
+                      <HeartOutlineIcon className="h-6 w-6" />
+                    )}
+                  </div>
                   <span data-counter="18.5" data-decimals="1" data-suffix="K">
                     18.5K
                   </span>
                 </span>
 
                 <span className="flex items-center gap-1">
-                  <PaperAirplaneIcon className="h-4 w-4" />
+                  <PaperAirplaneIcon className="h-6 w-6" />
                   <span data-counter="1.3" data-decimals="1" data-suffix="K">
                     1.3K
                   </span>
                 </span>
-
-                <PaperAirplaneIcon className="ml-auto h-4 w-4 -rotate-12" />
               </div>
             </div>
           </article>
@@ -272,7 +325,7 @@ export default function BentoSection() {
                 <div className="rounded-full bg-linear-to-br from-[#66003A] via-[#ff496f] to-[#FFF1CC] p-0.75">
                   <div className="relative h-16 w-16 overflow-hidden rounded-full border-2 border-white bg-neutral-300">
                     <Image
-                      src="/images/insta-img.jpg"
+                      src="/images/logo-2.png"
                       alt="Growbytee social media profile"
                       fill
                       sizes="64px"
