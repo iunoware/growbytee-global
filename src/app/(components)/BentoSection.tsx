@@ -12,6 +12,7 @@ import {
   EyeIcon,
   HeartIcon,
   PaperAirplaneIcon,
+  ChartBarSquareIcon,
 } from "@heroicons/react/24/outline";
 
 const testimonials = [
@@ -41,20 +42,27 @@ const testimonials = [
 export default function BentoSection() {
   const sectionRef = useRef<HTMLElement>(null);
 
+  // useGSAP(
+  //   () => {
+  //     gsap.from(".bento-card", {
+  //       opacity: 0,
+  //       y: 40,
+  //       duration: 0.8,
+  //       stagger: 0.12,
+  //       ease: "power3.out",
+  //       scrollTrigger: {
+  //         trigger: sectionRef.current,
+  //         start: "top 75%",
+  //       },
+  //     });
+  //   },
+  //   {
+  //     scope: sectionRef,
+  //   },
+  // );
+
   useGSAP(
     () => {
-      // gsap.from(".heading-line", {
-      //   opacity: 0,
-      //   y: 40,
-      //   duration: 0.8,
-      //   stagger: 0.12,
-      //   ease: "power3.out",
-      //   scrollTrigger: {
-      //     trigger: sectionRef.current,
-      //     start: "top 75%",
-      //   },
-      // });
-
       gsap.from(".bento-card", {
         opacity: 0,
         y: 40,
@@ -64,7 +72,40 @@ export default function BentoSection() {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 75%",
+          once: true,
         },
+      });
+
+      const counterElements = gsap.utils.toArray<HTMLElement>("[data-counter]");
+
+      counterElements.forEach((element) => {
+        const target = Number(element.dataset.counter ?? 0);
+        const decimals = Number(element.dataset.decimals ?? 0);
+        const prefix = element.dataset.prefix ?? "";
+        const suffix = element.dataset.suffix ?? "";
+
+        const counter = {
+          value: 0,
+        };
+
+        gsap.to(counter, {
+          value: target,
+          duration: 1.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 75%",
+            once: true,
+          },
+          onUpdate: () => {
+            const formattedValue = counter.value.toLocaleString("en-IN", {
+              minimumFractionDigits: decimals,
+              maximumFractionDigits: decimals,
+            });
+
+            element.textContent = `${prefix}${formattedValue}${suffix}`;
+          },
+        });
       });
     },
     {
@@ -96,17 +137,23 @@ export default function BentoSection() {
               <div className="flex items-center gap-4 text-[12px] font-medium text-white">
                 <span className="flex items-center gap-1">
                   <EyeIcon className="h-4 w-4" />
-                  256K
+                  <span data-counter="256" data-suffix="K">
+                    256K
+                  </span>
                 </span>
 
                 <span className="flex items-center gap-1">
                   <HeartIcon className="h-4 w-4" />
-                  18.5K
+                  <span data-counter="18.5" data-decimals="1" data-suffix="K">
+                    18.5K
+                  </span>
                 </span>
 
                 <span className="flex items-center gap-1">
                   <PaperAirplaneIcon className="h-4 w-4" />
-                  1.3K
+                  <span data-counter="1.3" data-decimals="1" data-suffix="K">
+                    1.3K
+                  </span>
                 </span>
 
                 <PaperAirplaneIcon className="ml-auto h-4 w-4 -rotate-12" />
@@ -134,7 +181,11 @@ export default function BentoSection() {
                 <div>
                   <p className="text-2xl leading-none font-medium">Budget</p>
 
-                  <p className="mt-2 text-3xl leading-none font-bold sm:text-4xl">
+                  <p
+                    data-counter="30000"
+                    data-prefix="₹"
+                    className="mt-2 text-3xl leading-none font-bold sm:text-4xl"
+                  >
                     ₹30,000
                   </p>
                 </div>
@@ -146,14 +197,22 @@ export default function BentoSection() {
                     <ArrowTrendingUpIcon className="h-5 w-5" />
                   </div>
 
-                  <p className="mt-2 text-3xl leading-none font-bold sm:text-4xl">420K</p>
+                  <p
+                    data-counter="420"
+                    data-suffix="K"
+                    className="mt-2 text-3xl leading-none font-bold sm:text-4xl"
+                  >
+                    420K
+                  </p>
                 </div>
               </div>
 
               <div className="mt-auto grid grid-cols-3 gap-3 pt-7">
                 <div>
                   <div className="flex items-center gap-1">
-                    <p className="text-xs font-bold sm:text-sm">356</p>
+                    <p data-counter="356" className="text-xs font-bold sm:text-sm">
+                      356
+                    </p>
 
                     <span className="text-[7px] font-bold text-green-500">▲12%</span>
                   </div>
@@ -163,7 +222,13 @@ export default function BentoSection() {
 
                 <div>
                   <div className="flex items-center gap-1">
-                    <p className="text-xs font-bold sm:text-sm">₹84</p>
+                    <p
+                      data-counter="84"
+                      data-prefix="₹"
+                      className="text-xs font-bold sm:text-sm"
+                    >
+                      ₹84
+                    </p>
 
                     <span className="text-[7px] font-bold text-red-500">▼8%</span>
                   </div>
@@ -172,19 +237,22 @@ export default function BentoSection() {
                 </div>
 
                 <div>
-                  <p className="text-xs font-bold sm:text-sm">6.8x</p>
+                  <p
+                    data-counter="6.8"
+                    data-decimals="1"
+                    data-suffix="x"
+                    className="text-xs font-bold sm:text-sm"
+                  >
+                    6.8x
+                  </p>
 
                   <p className="mt-1 text-[10px] sm:text-xs">ROAS</p>
                 </div>
               </div>
             </div>
 
-            {/* Decorative meta */}
-            {/* <div className="absolute -right-7 -bottom-12 h-40 w-40 rounded-full border-18 border-[#66003A]/7" /> */}
-            {/* <div className="absolute right-12 -bottom-17 h-32 w-32 rounded-full border-15 border-[#66003A]/7" /> */}
-
             {/* <div className="-translate-y-26 translate-x-65 -rotate-15 absolute"> */}
-            <div className="-translate-y-26 translate-x-65 -rotate-15 absolute">
+            <div className="-bottom-13 -right-9 -rotate-15 absolute">
               <div className="h-45 w-45 relative  opacity-10">
                 <Image
                   fill
@@ -204,7 +272,7 @@ export default function BentoSection() {
                 <div className="rounded-full bg-linear-to-br from-[#66003A] via-[#ff496f] to-[#FFF1CC] p-0.75">
                   <div className="relative h-16 w-16 overflow-hidden rounded-full border-2 border-white bg-neutral-300">
                     <Image
-                      src="/images/logo-2.png"
+                      src="/images/insta-img.jpg"
                       alt="Growbytee social media profile"
                       fill
                       sizes="64px"
@@ -220,17 +288,33 @@ export default function BentoSection() {
 
                   <div className="mt-5 grid grid-cols-3 gap-5">
                     <div>
-                      <p className="text-sm font-bold text-black">120</p>
+                      <p
+                        // data-counter="120"
+                        className="text-sm font-bold text-black"
+                      >
+                        120
+                      </p>
                       <p className="mt-1 text-[11px] text-black">posts</p>
                     </div>
 
                     <div>
-                      <p className="text-sm font-bold text-black">10K</p>
+                      <p
+                        // data-counter="10"
+                        // data-suffix="K"
+                        className="text-sm font-bold text-black"
+                      >
+                        10K
+                      </p>
                       <p className="mt-1 text-[11px] text-black">followers</p>
                     </div>
 
                     <div>
-                      <p className="text-sm font-bold text-black">200</p>
+                      <p
+                        // data-counter="200"
+                        className="text-sm font-bold text-black"
+                      >
+                        200
+                      </p>
                       <p className="mt-1 text-[11px] text-black">following</p>
                     </div>
                   </div>
@@ -245,11 +329,7 @@ export default function BentoSection() {
               {testimonials.map((testimonial) => (
                 <div
                   key={testimonial.id}
-                  className="
-                    grid grid-cols-[44px_1fr] items-center gap-3
-                    rounded-xl bg-white/85 px-3 py-2.5
-                    shadow-[0_3px_8px_rgba(0,0,0,0.08)]
-                  "
+                  className="grid grid-cols-[44px_1fr] items-center gap-3 rounded-xl bg-white/85 px-3 py-4 shadow-[0_3px_8px_rgba(0,0,0,0.08)]"
                 >
                   <div className="relative h-11 w-11 overflow-hidden rounded-full bg-neutral-300">
                     <Image
@@ -262,14 +342,14 @@ export default function BentoSection() {
                   </div>
 
                   <div className="min-w-0">
-                    <p className="line-clamp-2 text-[10px] leading-3.25 text-neutral-700">
+                    <p className="line-clamp-2 text-sm leading-3.25 text-neutral-700">
                       “{testimonial.content}”
                     </p>
 
                     <div className="mt-1 flex items-end justify-between gap-2">
-                      <p className="text-[10px] tracking-wide text-red-500">★★★★★</p>
+                      <p className="text-sm tracking-wide text-red-500">★★★★★</p>
 
-                      <p className="truncate text-[7px] text-neutral-600 italic">
+                      <p className="truncate text-sm text-neutral-600 italic">
                         {testimonial.role}
                       </p>
                     </div>
@@ -292,12 +372,18 @@ export default function BentoSection() {
 
               <h3 className="mt-7 text-2xl font-bold sm:text-3xl">Qualified Leads</h3>
 
-              <p className="mt-auto self-end text-2xl font-bold sm:text-3xl">
+              <p
+                data-counter="486"
+                data-suffix="+ Leads"
+                className="mt-auto self-end text-2xl font-bold sm:text-3xl"
+              >
                 486+ Leads
               </p>
             </div>
 
-            <ChartBarIcon className="absolute -right-3 -bottom-5 h-36 w-36 -rotate-12 text-[#664A00]/10" />
+            <div className="bottom-0 right-0 -rotate-15 absolute">
+              <ChartBarSquareIcon className="h-36 w-36 -rotate-12 text-[#664A00]/10" />
+            </div>
           </article>
         </div>
       </div>
