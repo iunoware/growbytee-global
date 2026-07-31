@@ -24,21 +24,21 @@ type LikePosition = {
 const testimonials = [
   {
     id: 1,
-    image: "/images/marketing-bento/client-1.jpg",
+    image: "/images/testimonial-1.jpg",
     content:
       "The campaigns delivered measurable results. Better engagement, and a clear return on investment.",
     role: "Founder, Healthcare",
   },
   {
     id: 2,
-    image: "/images/marketing-bento/client-2.jpg",
+    image: "/images/testimonial-2.jpg",
     content:
       "Growbytee didn't just improve our social media—they transformed our business. Our enquiries doubled within two months.",
     role: "Founder, Restaurant",
   },
   {
     id: 3,
-    image: "/images/marketing-bento/client-3.jpg",
+    image: "/images/testimonial-3.jpg",
     content:
       "From branding to performance marketing, every strategy was backed by data. We finally found a growth partner we can trust.",
     role: "Founder, Construction",
@@ -48,27 +48,7 @@ const testimonials = [
 export default function BentoSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [isLiked, setIsLiked] = useState(false);
-  // const [isDoubleClicked, setIsDoubleClicked] = useState(false);
   const [likePosition, setLikePosition] = useState<LikePosition | null>(null);
-
-  // useGSAP(
-  //   () => {
-  //     gsap.from(".bento-card", {
-  //       opacity: 0,
-  //       y: 40,
-  //       duration: 0.8,
-  //       stagger: 0.12,
-  //       ease: "power3.out",
-  //       scrollTrigger: {
-  //         trigger: sectionRef.current,
-  //         start: "top 75%",
-  //       },
-  //     });
-  //   },
-  //   {
-  //     scope: sectionRef,
-  //   },
-  // );
 
   useGSAP(
     () => {
@@ -137,10 +117,7 @@ export default function BentoSection() {
   }
 
   return (
-    <section
-      ref={sectionRef}
-      className="overflow-hidden bg-white py-16 sm:py-20 lg:py-24"
-    >
+    <section ref={sectionRef} className="overflow-hidden bg-bg py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:h-150 lg:grid-cols-[0.82fr_1fr_1fr] lg:grid-rows-6 lg:gap-4 ">
           {/* Reels card */}
@@ -316,20 +293,20 @@ export default function BentoSection() {
             </div>
           </article>
 
-          {/* Instagram profile card */}
+          {/* profile card */}
           <article className="bento-card lg:row-span-2 marketing-bento-card relative min-h-72 overflow-hidden rounded-2xl bg-[#EDEDED] p-5 shadow-[0_4px_12px_rgba(0,0,0,0.14)] sm:p-6 lg:min-h-0">
             <div className="absolute top-0 bottom-0 left-0 w-1.5 bg-[#ff6885]" />
 
             <div className="flex h-full items-center">
               <div className="grid w-full grid-cols-[auto_1fr] items-center gap-5">
-                <div className="rounded-full bg-linear-to-br from-[#66003A] via-[#ff496f] to-[#FFF1CC] p-0.75">
-                  <div className="relative h-16 w-16 overflow-hidden rounded-full border-2 border-white bg-neutral-300">
+                <div className="shrink-0 grid place-items-center rounded-full bg-linear-to-br from-[#66003A] via-[#ff496f] to-[#FFF1CC] p-0.75">
+                  <div className="relative h-18 w-18 overflow-hidden rounded-full bg-black">
                     <Image
                       src="/images/logo-2.png"
-                      alt="Growbytee social media profile"
+                      alt="Growbytee Global logo"
                       fill
-                      sizes="64px"
-                      className="object-cover"
+                      sizes="72px"
+                      className="object-contain p-2"
                     />
                   </div>
                 </div>
@@ -377,17 +354,21 @@ export default function BentoSection() {
           </article>
 
           {/* Testimonials card */}
-          <article className="bento-card lg:row-span-4 marketing-bento-card min-h-72 overflow-hidden rounded-2xl bg-[#D2D9F9] p-5 shadow-[0_4px_12px_rgba(0,0,0,0.14 sm:p-6 lg:min-h-0 ">
-            <div className="flex h-full flex-col justify-center gap-3">
+          <article className="bento-card marketing-bento-card relative min-h-72 overflow-hidden rounded-2xl bg-[#D2D9F9] p-5 shadow-[0_4px_12px_rgba(0,0,0,0.14)] sm:p-6 lg:row-span-4 lg:min-h-0">
+            {/* Background shapes that will be blurred */}
+            {/* <div className="pointer-events-none absolute z-100 top-8 h-20 w-full rounded bg-white/50 blur-2xl" />
+            <div className="pointer-events-none absolute z-100 bottom-10 h-20 w-full rounded bg-white/50 blur-2xl" /> */}
+
+            <div className="relative z-10 flex h-full flex-col justify-center gap-3">
               {testimonials.map((testimonial) => (
                 <div
                   key={testimonial.id}
-                  className="grid grid-cols-[44px_1fr] items-center gap-3 rounded-xl bg-white/85 px-3 py-4 shadow-[0_3px_8px_rgba(0,0,0,0.08)]"
+                  className=" grid grid-cols-[44px_1fr] items-center gap-3 rounded-2xl border border-white/60 bg-white/55 px-3 py-4 shadow-[0_8px_24px_rgba(44,58,130,0.12)] backdrop-blur-xl"
                 >
                   <div className="relative h-11 w-11 overflow-hidden rounded-full bg-neutral-300">
                     <Image
                       src={testimonial.image}
-                      alt=""
+                      alt={testimonial.role}
                       fill
                       sizes="44px"
                       className="object-cover"
@@ -395,14 +376,14 @@ export default function BentoSection() {
                   </div>
 
                   <div className="min-w-0">
-                    <p className="line-clamp-2 text-sm leading-3.25 text-neutral-700">
+                    <p className="line-clamp-2 text-sm leading-4 text-neutral-700">
                       “{testimonial.content}”
                     </p>
 
-                    <div className="mt-1 flex items-end justify-between gap-2">
+                    <div className="mt-2 flex items-end justify-between gap-2">
                       <p className="text-sm tracking-wide text-red-500">★★★★★</p>
 
-                      <p className="truncate text-sm text-neutral-600 italic">
+                      <p className="truncate text-xs text-neutral-600 italic">
                         {testimonial.role}
                       </p>
                     </div>
@@ -410,6 +391,30 @@ export default function BentoSection() {
                 </div>
               ))}
             </div>
+
+            {/* Foreground top blur: covers upper half of first review */}
+            {/* <div className="pointer-events-none absolute top-0 right-0 left-0 z-20 h-[20%] bg-linear-to-b from-[#D2D9F9]/95 via-[#D2D9F9]/35 to-transparent backdrop-blur-[3px]" /> */}
+            <div
+              className="pointer-events-none absolute top-0 right-0 left-0 z-20 h-[26%] bg-[#D2D9F9]/55 backdrop-blur-[6px]"
+              style={{
+                WebkitMaskImage:
+                  "linear-gradient(to bottom, black 0%, black 25%, transparent 100%)",
+                maskImage:
+                  "linear-gradient(to bottom, black 0%, black 25%, transparent 100%)",
+              }}
+            />
+
+            {/* Foreground bottom blur: covers lower half of third review */}
+            {/* <div className=" pointer-events-none absolute right-0 bottom-0 left-0 z-20 h-[20%] bg-linear-to-t from-[#D2D9F9]/95 via-[#D2D9F9]/35 to-transparent backdrop-blur-[3px] " /> */}
+            <div
+              className="pointer-events-none absolute right-0 bottom-0 left-0 z-20 h-[26%] bg-[#D2D9F9]/55 backdrop-blur-[6px] "
+              style={{
+                WebkitMaskImage:
+                  "linear-gradient(to top, black 0%, black 25%, transparent 100%)",
+                maskImage:
+                  "linear-gradient(to top, black 0%, black 25%, transparent 100%)",
+              }}
+            />
           </article>
 
           {/* Analytics card */}
@@ -434,8 +439,8 @@ export default function BentoSection() {
               </p>
             </div>
 
-            <div className="bottom-0 right-0 -rotate-15 absolute">
-              <ChartBarSquareIcon className="h-36 w-36 -rotate-12 text-[#664A00]/10" />
+            <div className="-bottom-14 -right-10 -rotate-6 absolute">
+              <ChartBarSquareIcon className="h-55 w-55 -rotate-12 text-[#664A00]/10" />
             </div>
           </article>
         </div>
