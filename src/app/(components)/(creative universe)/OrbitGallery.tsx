@@ -44,15 +44,28 @@ export default function OrbitGallery({
           const x = Math.cos(currentAngle) * radiusX;
           const y = Math.sin(currentAngle) * radiusY + 80;
 
-          const isBottomHalf = Math.sin(currentAngle) > 0;
+          // const isBottomHalf = Math.sin(currentAngle) > 0;
+          const verticalPosition = Math.sin(currentAngle);
+
+          const fadeStart = -0.15;
+          const fadeEnd = 0.3;
+
+          const opacity = gsap.utils.clamp(
+            0,
+            1,
+            gsap.utils.mapRange(fadeEnd, fadeStart, 0, 1, verticalPosition),
+          );
 
           gsap.set(image, {
             x,
             y,
             xPercent: -50,
             yPercent: -50,
-            autoAlpha: isBottomHalf ? 0 : 1,
-            pointerEvents: isBottomHalf ? "none" : "auto",
+            opacity,
+            // autoAlpha: isBottomHalf ? 0 : 1,
+            // pointerEvents: isBottomHalf ? "none" : "auto",
+            visibility: opacity <= 0.01 ? "hidden" : "visible",
+            pointerEvents: opacity < 0.4 ? "none" : "auto",
           });
         });
       };
