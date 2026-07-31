@@ -53,7 +53,7 @@ body {
       #5851db) border-box;
 
   animation: gradient-spin 2.5s linear infinite;
-  animation-play-state: paused;
+  /* animation-play-state: paused; */
 }
 
 /* Pure-white inner background */
@@ -85,9 +85,9 @@ body {
   transition: opacity 300ms ease;
 }
 
-.gradient-button-outline:hover {
+/* .gradient-button-outline:hover {
   animation-play-state: running;
-}
+} */
 
 .gradient-button-outline:hover::before {
   opacity: 0.4;
@@ -112,3 +112,36 @@ body {
 }
 
 /* button animation ends here........ */
+
+
+
+/* footer marquee test starts here....... */
+@keyframes footer-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.footer-marquee {
+  animation: footer-marquee 24s linear infinite;
+  will-change: transform;
+}
+
+@media (hover: hover) {
+  .footer-marquee:hover {
+    animation-play-state: paused;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-marquee {
+    animation: none;
+    transform: translateX(0);
+  }
+}
+
+/* footer marquee test ends here....... */

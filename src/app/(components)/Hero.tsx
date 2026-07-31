@@ -64,7 +64,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex min-h-screen items-center overflow-hidden bg-[#f7f7f7] pt-15"
+      className="relative flex min-h-screen items-center overflow-hidden bg-[#f7f7f7]"
     >
       <div className="mx-auto grid w-full max-w-360 items-center gap-12 px-5 py-16 sm:px-8 lg:grid-cols-[1.25fr_0.75fr] lg:px-12 xl:px-16">
         {/* Left content */}
@@ -84,11 +84,11 @@ export default function Hero() {
             reach, generate qualified leads, and drive measurable growth.
           </p>
           <div className="hero-fade mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <GradientButton variant="outline" href="/contact">
+            <GradientButton variant="outline" href="/">
               Explore Success Stories
             </GradientButton>
 
-            <GradientButton variant="background" href="/contact">
+            <GradientButton variant="background" href="/">
               Book a Strategy Call
             </GradientButton>
 
