@@ -164,7 +164,7 @@ export default function Footer() {
         <div className="md:flex hidden relative z-0 mt-20 w-full justify-center overflow-hidden sm:mt-24 lg:mt-28">
           <div className="relative aspect-1600/220 w-full max-w-[1800px]">
             <Image
-              src="/images/growbytee.png"
+              src="/images/Growbytee.png"
               alt="Growbytee Global Private Limited"
               fill
               sizes="100vw"
