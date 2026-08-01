@@ -143,7 +143,7 @@ export default function Footer() {
               Palayamkottai, Tamil Nadu 627002
             </address>
 
-            <div className="mt-5 flex items-center gap-3">
+            <div className="mt-5 pb-10 md:pb-1 flex items-center gap-3">
               {socialLinks.map(({ label, href, icon: Icon }) => (
                 <Link
                   key={label}
@@ -160,8 +160,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Large footer text */}
-        <div className="relative z-0 mt-20 flex w-full justify-center overflow-hidden sm:mt-24 lg:mt-28">
+        {/* Large footer logo */}
+        <div className="md:flex hidden relative z-0 mt-20 w-full justify-center overflow-hidden sm:mt-24 lg:mt-28">
           <div className="relative aspect-1600/220 w-full max-w-[1800px]">
             <Image
               src="/images/growbytee.png"

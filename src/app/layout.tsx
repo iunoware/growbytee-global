@@ -18,11 +18,21 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Growbytee Global Private Limited",
+
   description:
     "Growbytee Global Private Limited is a Tirunelveli-based digital marketing agency serving businesses worldwide with SEO, social media marketing, branding, web development, AI automation, and innovative growth solutions.",
+
   icons: {
     icon: { url: "/images/growbytee_fav_icon.png", sizes: "16x16", type: "image/png" },
   },
+
+  // google search console verification
+  // verification: {
+  //   google: "T6V1zKAoyq6kHlV5IyaMwVWp2IM9OdT08hXKEcZ6fro",
+  // },
+
+  // canonical tag
+  metadataBase: new URL("https://growbyteeglobal.com/"),
 };
 
 export default function RootLayout({

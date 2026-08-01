@@ -71,24 +71,28 @@ export default function StorySection() {
 
   return (
     <section ref={sectionRef} className="w-full bg-bg py-10 sm:py-12">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex gap-5 overflow-x-auto pb-4 sm:gap-7 lg:grid lg:grid-cols-6 lg:overflow-visible lg:pb-0 [&::-webkit-scrollbar]:hidden">
+      <div className="mx-auto max-w-7xl px-4 sm:px-10 lg:px-12">
+        <div className="flex flex-wrap h-fit items-center pt-10 justify-center gap-5 overflow-x-auto pb-4 sm:gap-7 lg:grid lg:grid-cols-6 lg:overflow-visible lg:pb-0 [&::-webkit-scrollbar]:hidden">
           {industries.map((industry) => (
             <article
               key={industry.title}
-              className="group story-coin min-w-32.5 shrink-0 text-center lg:min-w-0"
+              className="story-coin group min-w-32.5 shrink-0 text-center lg:min-w-0 "
             >
-              <div className="relative mx-auto flex h-32 w-32 items-center justify-center rounded-full bg-linear-to-br from-[#ffca32] via-[#ff5f55] to-[#8b34c7] p-0.75 transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-[1.03] sm:h-34 sm:w-34 ">
+              <div className="story-coin-outline relative isolate mx-auto flex h-32 w-32 items-center justify-center rounded-full p-0.75 transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-[1.03] sm:h-34 sm:w-34">
                 <div
-                  className={`flex h-full w-full items-center justify-center rounded-full bg-linear-to-br ${industry.gradient}`}
+                  className={`relative z-10 flex h-full w-full items-center justify-center rounded-full bg-linear-to-br ${industry.gradient}`}
                 >
-                  <div className="text-white ">
-                    {/* {industry.icon} */}
-                    <div
-                      className={`relative ${industry.title === "See more" ? "h-12 w-12" : "h-20 w-20"}`}
-                    >
-                      <Image alt={industry.alt} src={`/images/${industry.images}`} fill />
-                    </div>
+                  <div
+                    className={`relative ${
+                      industry.title === "See more" ? "h-12 w-12" : "h-20 w-20"
+                    }`}
+                  >
+                    <Image
+                      alt={industry.alt}
+                      src={`/images/${industry.images}`}
+                      fill
+                      className="object-contain drop-shadow-lg drop-shadow-gray-50/20"
+                    />
                   </div>
                 </div>
               </div>

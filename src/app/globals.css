@@ -115,6 +115,71 @@ body {
 
 
 
+
+
+/* story section gradient outline starts here.......... */
+@property --story-gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.story-coin-outline {
+  background: conic-gradient(from var(--story-gradient-angle),
+      #5851db,
+      #fd1d1d,
+      #fcaf45,
+      #5851db);
+
+  animation: story-gradient-spin 3s linear infinite;
+}
+
+/* Soft animated glow */
+.story-coin-outline::before {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  z-index: -1;
+  border-radius: inherit;
+
+  background: conic-gradient(from var(--story-gradient-angle),
+      #5851db,
+      #fd1d1d,
+      #fcaf45,
+      #5851db);
+
+  filter: blur(12px);
+  opacity: 0.15;
+  transition: opacity 300ms ease;
+}
+
+.group:hover .story-coin-outline::before {
+  opacity: 0.4;
+}
+
+@keyframes story-gradient-spin {
+  from {
+    --story-gradient-angle: 0deg;
+  }
+
+  to {
+    --story-gradient-angle: 360deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .story-coin-outline {
+    animation: none;
+  }
+}
+
+/* story section gradient outline ends here.......... */
+
+
+
+
+
+
 /* footer marquee test starts here....... */
 @keyframes footer-marquee {
   from {

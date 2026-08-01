@@ -592,7 +592,7 @@ export default function Navbar() {
     <header ref={navbarRef} className="fixed top-0 left-0 z-50 w-full">
       {/* Navbar */}
       <nav
-        className={`relative z-70 flex h-25 items-center justify-between bg-bg/70 px-6 backdrop-blur-lg transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] sm:h-15 sm:px-10 lg:h-20 lg:px-15 ${
+        className={`relative z-70 flex items-center justify-between bg-bg/70 px-6 backdrop-blur-lg transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] h-20 sm:h-22 lg:h-19 sm:px-10 lg:px-15 ${
           isNavbarVisible || isMenuOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
