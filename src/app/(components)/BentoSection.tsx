@@ -47,6 +47,7 @@ const testimonials = [
 
 export default function BentoSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const testimonialTrackRef = useRef<HTMLDivElement>(null);
   const [isLiked, setIsLiked] = useState(false);
   const [likePosition, setLikePosition] = useState<LikePosition | null>(null);
 
@@ -96,6 +97,30 @@ export default function BentoSection() {
           },
         });
       });
+
+      // testimonial loop
+      const testimonialTrack = testimonialTrackRef.current;
+
+      if (testimonialTrack) {
+        const testimonialTween = gsap.to(testimonialTrack, {
+          yPercent: -50,
+          duration: 14,
+          ease: "none",
+          repeat: -1,
+        });
+
+        const pauseTestimonials = () => testimonialTween.pause();
+        const resumeTestimonials = () => testimonialTween.resume();
+
+        testimonialTrack.addEventListener("mouseenter", pauseTestimonials);
+        testimonialTrack.addEventListener("mouseleave", resumeTestimonials);
+
+        return () => {
+          testimonialTrack.removeEventListener("mouseenter", pauseTestimonials);
+          testimonialTrack.removeEventListener("mouseleave", resumeTestimonials);
+          testimonialTween.kill();
+        };
+      }
     },
     {
       scope: sectionRef,
@@ -318,10 +343,7 @@ export default function BentoSection() {
 
                   <div className="mt-5 grid grid-cols-3 gap-5">
                     <div>
-                      <p
-                        // data-counter="120"
-                        className="text-sm font-bold text-black"
-                      >
+                      <p data-counter="120" className="text-sm font-bold text-black">
                         120
                       </p>
                       <p className="mt-1 text-[11px] text-black">posts</p>
@@ -329,8 +351,8 @@ export default function BentoSection() {
 
                     <div>
                       <p
-                        // data-counter="10"
-                        // data-suffix="K"
+                        data-counter="10"
+                        data-suffix="K"
                         className="text-sm font-bold text-black"
                       >
                         10K
@@ -339,10 +361,7 @@ export default function BentoSection() {
                     </div>
 
                     <div>
-                      <p
-                        // data-counter="200"
-                        className="text-sm font-bold text-black"
-                      >
+                      <p data-counter="200" className="text-sm font-bold text-black">
                         200
                       </p>
                       <p className="mt-1 text-[11px] text-black">following</p>
@@ -354,65 +373,76 @@ export default function BentoSection() {
           </article>
 
           {/* Testimonials card */}
-          <article className="bento-card marketing-bento-card relative min-h-72 overflow-hidden rounded-2xl bg-[#D2D9F9] p-5 shadow-[0_4px_12px_rgba(0,0,0,0.14)] sm:p-6 lg:row-span-4 lg:min-h-0">
-            {/* Background shapes that will be blurred */}
-            {/* <div className="pointer-events-none absolute z-100 top-8 h-20 w-full rounded bg-white/50 blur-2xl" />
-            <div className="pointer-events-none absolute z-100 bottom-10 h-20 w-full rounded bg-white/50 blur-2xl" /> */}
+          {/* Testimonials card */}
+          <article className="bento-card marketing-bento-card relative min-h-72 overflow-hidden rounded-2xl bg-[#D2D9F9] shadow-[0_4px_12px_rgba(0,0,0,0.14)] lg:row-span-4 lg:min-h-0">
+            {/* Moving testimonials viewport */}
+            <div className="absolute inset-x-5 top-0 bottom-0 overflow-hidden sm:inset-x-6">
+              <div
+                ref={testimonialTrackRef}
+                className="flex flex-col will-change-transform"
+              >
+                {[0, 1].map((groupIndex) => (
+                  <div
+                    key={groupIndex}
+                    className="flex flex-col gap-3 pt-3 pb-0"
+                    aria-hidden={groupIndex === 1}
+                  >
+                    {testimonials.map((testimonial) => (
+                      <div
+                        key={`${groupIndex}-${testimonial.id}`}
+                        className="grid min-h-26 grid-cols-[44px_1fr] items-center gap-3 rounded-2xl border border-white/60 bg-white/70 px-3 py-4 shadow-[0_8px_24px_rgba(44,58,130,0.12)]"
+                      >
+                        <div className="relative h-11 w-11 overflow-hidden rounded-full bg-neutral-300">
+                          <Image
+                            src={testimonial.image}
+                            alt={groupIndex === 0 ? testimonial.role : ""}
+                            fill
+                            sizes="44px"
+                            className="object-cover"
+                          />
+                        </div>
 
-            <div className="relative z-10 flex h-full flex-col justify-center gap-3">
-              {testimonials.map((testimonial) => (
-                <div
-                  key={testimonial.id}
-                  className=" grid grid-cols-[44px_1fr] items-center gap-3 rounded-2xl border border-white/60 bg-white/55 px-3 py-4 shadow-[0_8px_24px_rgba(44,58,130,0.12)] backdrop-blur-xl"
-                >
-                  <div className="relative h-11 w-11 overflow-hidden rounded-full bg-neutral-300">
-                    <Image
-                      src={testimonial.image}
-                      alt={testimonial.role}
-                      fill
-                      sizes="44px"
-                      className="object-cover"
-                    />
+                        <div className="min-w-0">
+                          <p className="line-clamp-2 text-sm leading-4 text-neutral-700">
+                            “{testimonial.content}”
+                          </p>
+
+                          <div className="mt-2 flex items-end justify-between gap-2">
+                            <p className="shrink-0 text-sm tracking-wide text-red-500">
+                              ★★★★★
+                            </p>
+
+                            <p className="truncate text-xs text-neutral-600 italic">
+                              {testimonial.role}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-
-                  <div className="min-w-0">
-                    <p className="line-clamp-2 text-sm leading-4 text-neutral-700">
-                      “{testimonial.content}”
-                    </p>
-
-                    <div className="mt-2 flex items-end justify-between gap-2">
-                      <p className="text-sm tracking-wide text-red-500">★★★★★</p>
-
-                      <p className="truncate text-xs text-neutral-600 italic">
-                        {testimonial.role}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
 
-            {/* Foreground top blur: covers upper half of first review */}
-            {/* <div className="pointer-events-none absolute top-0 right-0 left-0 z-20 h-[20%] bg-linear-to-b from-[#D2D9F9]/95 via-[#D2D9F9]/35 to-transparent backdrop-blur-[3px]" /> */}
+            {/* Top foreground blur */}
             <div
-              className="pointer-events-none absolute top-0 right-0 left-0 z-20 h-[26%] bg-[#D2D9F9]/55 backdrop-blur-[6px]"
+              className="pointer-events-none absolute top-0 right-0 left-0 z-20 h-[28%] bg-[#D2D9F9]/55 backdrop-blur-[6px] "
               style={{
                 WebkitMaskImage:
-                  "linear-gradient(to bottom, black 0%, black 25%, transparent 100%)",
+                  "linear-gradient(to bottom, black 0%, black 20%, transparent 100%)",
                 maskImage:
-                  "linear-gradient(to bottom, black 0%, black 25%, transparent 100%)",
+                  "linear-gradient(to bottom, black 0%, black 20%, transparent 100%)",
               }}
             />
 
-            {/* Foreground bottom blur: covers lower half of third review */}
-            {/* <div className=" pointer-events-none absolute right-0 bottom-0 left-0 z-20 h-[20%] bg-linear-to-t from-[#D2D9F9]/95 via-[#D2D9F9]/35 to-transparent backdrop-blur-[3px] " /> */}
+            {/* Bottom foreground blur */}
             <div
-              className="pointer-events-none absolute right-0 bottom-0 left-0 z-20 h-[26%] bg-[#D2D9F9]/55 backdrop-blur-[6px] "
+              className="pointer-events-none absolute right-0 bottom-0 left-0 z-20 h-[28%] bg-[#D2D9F9]/55 backdrop-blur-[6px]"
               style={{
                 WebkitMaskImage:
-                  "linear-gradient(to top, black 0%, black 25%, transparent 100%)",
+                  "linear-gradient(to top, black 0%, black 20%, transparent 100%)",
                 maskImage:
-                  "linear-gradient(to top, black 0%, black 25%, transparent 100%)",
+                  "linear-gradient(to top, black 0%, black 20%, transparent 100%)",
               }}
             />
           </article>

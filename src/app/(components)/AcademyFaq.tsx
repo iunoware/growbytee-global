@@ -18,6 +18,7 @@ const faqs = [
     description:
       "Create meaningful content that captures attention, sparks conversations, builds lasting communities, and transforms your social media presence into a powerful platform for brand awareness, customer engagement, and long-term business growth.",
     href: "/",
+    bgColor: "bg-[#feeacd]",
   },
   {
     number: "02",
@@ -26,6 +27,7 @@ const faqs = [
     description:
       "Reach the right audience at the right time with high-performing Meta and Google Ads campaigns designed to generate qualified leads, increase conversions, maximize return on investment, and deliver measurable business growth through continuous optimisation and data-driven decision making.",
     href: "/",
+    bgColor: "bg-[#d2d9f9]",
   },
   {
     number: "03",
@@ -34,6 +36,7 @@ const faqs = [
     description:
       "Bring your brand to life with compelling visual storytelling that captures attention and leaves a lasting impression. From professional reels, commercial photography, and cinematic videos to branded graphics, motion design, and marketing creatives.",
     href: "/",
+    bgColor: "bg-[#f4d7e7]",
   },
   {
     number: "04",
@@ -42,6 +45,7 @@ const faqs = [
     description:
       "Make smarter marketing decisions with real-time insights and continuous performance analysis. We track every campaign, monitor key performance indicators, measure audience behaviour, and optimize strategies using accurate data to improve engagement",
     href: "/",
+    bgColor: "bg-[#fecdcd]",
   },
 ];
 
@@ -166,7 +170,8 @@ export default function AcademyFaq() {
             <article
               key={faq.title}
               className={`academy-item border-b border-black/15 transition-colors duration-500 ${
-                isActive ? "bg-[#FDD49B]" : "bg-white"
+                // isActive ? "bg-[#FDD49B]" : "bg-white"
+                isActive ? `${faq.bgColor}` : "bg-white"
               }`}
             >
               <button
