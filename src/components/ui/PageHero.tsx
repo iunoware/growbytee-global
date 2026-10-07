@@ -44,7 +44,7 @@ export default function PageHero({ title, highlight, description }: PageHeroProp
           </h1>
         </FadeIn>
 
-        <FadeIn key={description}>
+        <FadeIn key={description} delay={0.5}>
           {/* <p className="hero-item mx-auto mt-6 max-w-2xl text-sm italic leading-relaxed text-black opacity-0 sm:text-base md:mt-8 md:text-lg"> */}
           <p className="mx-auto mt-6 max-w-2xl text-sm italic leading-relaxed text-black sm:text-base md:mt-8 md:text-lg">
             {description}
