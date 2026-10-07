@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import GradientButton from "@/src/components/GradientButton";
+import GradientButton from "@/src/components/ui/GradientButton";
 // import {} from "@heroicons/react/24/outline";
 import { PlayIcon, SpeakerWaveIcon, SpeakerXMarkIcon } from "@heroicons/react/24/solid";
 

@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import GradientButton from "@/src/components/GradientButton";
+import GradientButton from "@/src/components/ui/GradientButton";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 

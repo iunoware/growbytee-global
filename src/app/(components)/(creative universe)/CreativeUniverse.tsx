@@ -1,6 +1,6 @@
 "use client";
 
-import GradientButton from "@/src/components/GradientButton";
+import GradientButton from "@/src/components/ui/GradientButton";
 import OrbitGallery from "./OrbitGallery";
 import { galleryImages } from "./gallery-data";
 
