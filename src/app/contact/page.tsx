@@ -1,7 +1,11 @@
+import ContactForm from "./(components)/ContactForm";
+import FAQ from "./(components)/FAQ";
+
 export default function OurWorks() {
   return (
     <>
-      <h1 className="h-screen grid place-items-center text-3xl text-white">Contact</h1>
+      <ContactForm />
+      <FAQ />
     </>
   );
 }
