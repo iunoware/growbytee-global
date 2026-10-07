@@ -1,23 +1,23 @@
 import Link from "next/link";
 import Image from "next/image";
-import GradientButton from "./GradientButton";
+import GradientButton from "./ui/GradientButton";
 
 const footerLinks = [
   {
     label: "Services",
-    href: "/",
+    href: "/services",
   },
   {
-    label: "Our Work",
-    href: "/",
+    label: "Our Works",
+    href: "/our-works",
   },
   {
     label: "About",
-    href: "/",
+    href: "/about",
   },
   {
     label: "Contact",
-    href: "/",
+    href: "/contact",
   },
 ];
 

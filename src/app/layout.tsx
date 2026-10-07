@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   },
 
   // google search console verification
-  // verification: {
-  //   google: "T6V1zKAoyq6kHlV5IyaMwVWp2IM9OdT08hXKEcZ6fro",
-  // },
+  verification: {
+    google: "WAXEXNWoz0lv8QGbu0Oj13SncHaRKVRTQusX54_yfpc",
+  },
 
   // canonical tag
   metadataBase: new URL("https://growbyteeglobal.com/"),
