@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import FadeIn from "@/src/components/ui/FadeIn";
+import FadeIn from "@/src/components/molecule/FadeIn";
 import Image from "next/image";
 
 // Edit this array to update the FAQs

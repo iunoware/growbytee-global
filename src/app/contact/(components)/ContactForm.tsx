@@ -179,7 +179,7 @@ import { useState, type FormEvent } from "react";
 import Image from "next/image";
 import { toast } from "sonner";
 import GradientButton from "@/src/components/ui/GradientButton";
-import FadeIn from "@/src/components/ui/FadeIn";
+import FadeIn from "@/src/components/molecule/FadeIn";
 import Field, { inputStyles } from "@/src/components/ui/Field";
 
 const SHEETDB_URL = "https://sheetdb.io/api/v1/zmyecp0n9phlj";

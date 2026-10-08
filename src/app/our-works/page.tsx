@@ -1,5 +1,5 @@
 import CTASection from "@/src/components/CTASection";
-import PageHero from "@/src/components/ui/PageHero";
+import PageHero from "@/src/components/molecule/PageHero";
 import WorksGrid from "./(components)/WorksGrid";
 
 export default function OurWorks() {

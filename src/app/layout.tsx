@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { Toaster } from "sonner";
+import TransitionProvider from "../components/molecule/TransitionProvider";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -47,23 +48,25 @@ export default function RootLayout({
       className={`${roboto.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-screen flex-col">
-        <Navbar />
-        <main className="flex-1">
-          {children}
-          <Toaster
-            position="top-right"
-            richColors
-            toastOptions={{
-              unstyled: true,
-              classNames: {
-                toast:
-                  "min-w-xs w-fit flex p-3 select-none gap-3 justify-start items-center rounded-lg shadow-lg bg-white text-slate-900 border border-slate-200",
-                title: "line-clamp-3 font-medium",
-              },
-            }}
-          />
-        </main>
-        <Footer />
+        <TransitionProvider column={5}>
+          <Navbar />
+          <main className="flex-1">
+            {children}
+            <Toaster
+              position="top-right"
+              richColors
+              toastOptions={{
+                unstyled: true,
+                classNames: {
+                  toast:
+                    "min-w-xs w-fit flex p-3 select-none gap-3 justify-start items-center rounded-lg shadow-lg bg-white text-slate-900 border border-slate-200",
+                  title: "line-clamp-3 font-medium",
+                },
+              }}
+            />
+          </main>
+          <Footer />
+        </TransitionProvider>
       </body>
     </html>
   );
