@@ -327,6 +327,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { usePageTransition } from "./molecule/TransitionProvider";
 
 gsap.registerPlugin(useGSAP);
 
@@ -355,6 +356,8 @@ const navigationLinks = [
 
 export default function Navbar() {
   const pathname = usePathname();
+
+  const { navigateTo } = usePageTransition();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
@@ -615,6 +618,10 @@ export default function Navbar() {
         {/* Main logo */}
         <Link
           href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            navigateTo("/");
+          }}
           aria-label="Growbytee home"
           className="relative block h-14 w-47 sm:h-12 sm:w-40"
         >
@@ -667,7 +674,12 @@ export default function Navbar() {
           {/* Opened menu logo */}
           <Link
             href="/"
-            onClick={closeMenu}
+            // onClick={closeMenu}
+            onClick={(e) => {
+              e.preventDefault();
+              closeMenu();
+              navigateTo("/");
+            }}
             aria-label="Growbytee home"
             className="relative h-9 w-16 sm:h-11 sm:w-20"
           >
@@ -695,7 +707,12 @@ export default function Navbar() {
                       menuLinkRefs.current[index] = element;
                     }}
                     href={link.href}
-                    onClick={closeMenu}
+                    // onClick={closeMenu}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      closeMenu();
+                      navigateTo(link.href);
+                    }}
                     tabIndex={isMenuOpen ? 0 : -1}
                     className={`group flex items-center justify-between py-3 text-[clamp(2rem,4vw,5rem)] leading-none font-normal tracking-[-0.055em] transition-colors duration-300 sm:py-4 ${
                       isActive ? "text-[#52cb7c]" : "text-[#f4f4f4] hover:text-[#52cb7c]"
