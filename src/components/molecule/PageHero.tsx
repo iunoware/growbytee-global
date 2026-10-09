@@ -4,6 +4,7 @@ import { useRef } from "react";
 // import gsap from "gsap";
 // import { useGSAP } from "@gsap/react";
 import FadeIn from "./FadeIn";
+import GradientText from "../ui/GradientText";
 
 // gsap.registerPlugin(useGSAP);
 
@@ -30,7 +31,7 @@ export default function PageHero({ title, highlight, description }: PageHeroProp
   return (
     <section
       ref={container}
-      className="flex min-h-[60vh] w-full items-center justify-center bg-[#f7f7f7] px-5 py-20 sm:px-8 md:min-h-[70vh]"
+      className="flex min-h-screen w-full items-center justify-center bg-[#f7f7f7] px-5 py-20 sm:px-8"
     >
       <div className="mx-auto max-w-5xl text-center">
         <FadeIn key={title}>
@@ -38,9 +39,10 @@ export default function PageHero({ title, highlight, description }: PageHeroProp
             {/* <span className="hero-item block opacity-0">{title}</span> */}
             <span className="block">{title}</span>
             {/* <span className="hero-item block bg-linear-to-r from-[#8e44ad] to-[#ff1f1f] bg-clip-text text-transparent opacity-0"> */}
-            <span className="block bg-linear-to-r from-gradient-from via-gradient-via to-gradient-to bg-clip-text text-transparent">
+            {/* <span className="block bg-linear-to-r from-gradient-from via-gradient-via to-gradient-to bg-clip-text text-transparent">
               {highlight}
-            </span>
+            </span> */}
+            <GradientText>{highlight}</GradientText>
           </h1>
         </FadeIn>
 
