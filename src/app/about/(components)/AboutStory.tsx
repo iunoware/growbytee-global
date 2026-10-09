@@ -1,4 +1,5 @@
 import ImageTrail from "./Imagetrail";
+import LineFadeIn from "@/src/components/molecule/LineFadeIn";
 
 const IMAGES = [
   "https://picsum.photos/id/287/300/300",
@@ -24,12 +25,14 @@ export default function AboutStory() {
     <section className="bg-[#f7f7f7]">
       <ImageTrail
         items={IMAGES}
-        className="flex min-h-[80vh] items-center justify-center overflow-hidden px-6"
+        className="flex min-h-screen items-center justify-center overflow-hidden px-6 cursor-crosshair"
       >
-        <p className="max-w-4xl text-center text-5xl/12 font-bold text-[#252525] md:text-6xl/18">
-          What started with a <Gradient>passion</Gradient> for{" "}
-          <Gradient>creativity</Gradient> has grown into a team dedicated to helping{" "}
-          <Gradient>businesses</Gradient> build <Gradient>stronger brands.</Gradient>
+        <p className="max-w-4xl text-center text-5xl/12 font-bold text-[#252525] md:text-6xl/18 ">
+          <LineFadeIn duration={1}>
+            What started with a <Gradient>passion</Gradient> for{" "}
+            <Gradient>creativity</Gradient> has grown into a team dedicated to helping{" "}
+            <Gradient>businesses</Gradient> build <Gradient>stronger brands.</Gradient>
+          </LineFadeIn>
         </p>
       </ImageTrail>
     </section>

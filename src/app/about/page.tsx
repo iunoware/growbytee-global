@@ -1,13 +1,18 @@
 import CTASection from "@/src/components/CTASection";
 import AboutHero from "./(components)/AboutHero";
 import AboutStory from "./(components)/AboutStory";
+import MissionVision from "./(components)/MissionVision";
+import OurImpact from "./(components)/OurImpact";
+import TrustedBy from "./(components)/TrustedBy";
 
 export default function OurWorks() {
   return (
     <>
-      {/* <h1 className="h-screen grid place-items-center text-3xl text-white">About</h1> */}
       <AboutHero />
       <AboutStory />
+      <MissionVision />
+      <OurImpact />
+      <TrustedBy />
       <CTASection />
     </>
   );
