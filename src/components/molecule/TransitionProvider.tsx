@@ -32,13 +32,24 @@ export default function TransitionProvider({
   const isTransitioning = useRef(true); // true while the intro is playing
   const hasMounted = useRef(false);
 
+  // to ignore the non visible bars
+  const getVisibleCols = () =>
+    colRefs.current.filter(
+      (el): el is HTMLDivElement => !!el && el.offsetParent !== null,
+    );
+
   /* Initial loading animation (runs once) */
   useEffect(() => {
-    const cols = colRefs.current;
+    // const cols = colRefs.current;
     let ctx: gsap.Context;
 
     const playIntro = () => {
       ctx = gsap.context(() => {
+        // optional
+        gsap.set(
+          colRefs.current.filter((el) => el && el.offsetParent === null),
+          { y: "-100%" },
+        );
         gsap
           .timeline({
             delay: 0.4,
@@ -47,8 +58,13 @@ export default function TransitionProvider({
             },
           })
           .to(logoRef.current, { opacity: 0, y: -20, duration: 0.4, ease: "power2.in" })
+          // .to(
+          //   cols,
+          //   { y: "-100%", duration: 0.7, ease: "power3.inOut", stagger: 0.05 },
+          //   "-=0.1",
+          // );
           .to(
-            cols,
+            getVisibleCols(),
             { y: "-100%", duration: 0.7, ease: "power3.inOut", stagger: 0.05 },
             "-=0.1",
           );
@@ -82,8 +98,13 @@ export default function TransitionProvider({
         },
       })
       .to(logoRef.current, { opacity: 0, y: -20, duration: 0.3, ease: "power2.in" })
+      // .to(
+      //   colRefs.current,
+      //   { y: "-100%", duration: 0.5, ease: "power3.inOut", stagger: 0.05 },
+      //   "-=0.1",
+      // );
       .to(
-        colRefs.current,
+        getVisibleCols(),
         { y: "-100%", duration: 0.5, ease: "power3.inOut", stagger: 0.05 },
         "-=0.1",
       );
@@ -95,8 +116,10 @@ export default function TransitionProvider({
       if (pathname === href) return;
 
       isTransitioning.current = true;
-      const cols = colRefs.current;
-      gsap.set(cols, { y: "100%" });
+      // const cols = colRefs.current;
+      // gsap.set(cols, { y: "100%" });
+      gsap.set(colRefs.current, { y: "100%" });
+      const cols = getVisibleCols();
       gsap.set(logoRef.current, { opacity: 0, y: 20 });
 
       gsap
@@ -119,8 +142,9 @@ export default function TransitionProvider({
   return (
     <TransitionContext.Provider value={{ navigateTo }}>
       {children}
-      <div className="pointer-events-none fixed inset-0 z-50 overflow-hidden">
-        {Array.from({ length: column }).map((_, idx) => (
+      {/* <div className="pointer-events-none fixed inset-0 z-50 overflow-hidden"> */}
+      <div className="pointer-events-none fixed inset-0 z-50 flex overflow-hidden">
+        {/* {Array.from({ length: column }).map((_, idx) => (
           <div
             key={idx}
             ref={(el) => {
@@ -133,6 +157,18 @@ export default function TransitionProvider({
               width: `calc(${100 / column}% + 1px)`, // 1px overlap hides the seams
               transform: "translateY(0%)", // covered on first paint
             }}
+          />
+        ))} */}
+        {Array.from({ length: column }).map((_, idx) => (
+          <div
+            key={idx}
+            ref={(el) => {
+              colRefs.current[idx] = el;
+            }}
+            className={`h-full flex-1 bg-linear-to-t from-[#084724] to-[#0D6B36] will-change-transform ${
+              idx >= 3 ? "hidden md:block" : ""
+            }`}
+            style={{ transform: "translateY(0%)", marginRight: "-1px" }}
           />
         ))}
         <div

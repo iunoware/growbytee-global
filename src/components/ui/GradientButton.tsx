@@ -1,21 +1,13 @@
-// eg
-{
-  /* 
-  
-<GradientButton variant="background" href="/contact" className="">
-  Book a Strategy Call
-</GradientButton> 
-
-*/
-}
-
 import Link from "next/link";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
+import { usePageTransition } from "../molecule/TransitionProvider";
 
 interface GradientButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "outline" | "background";
   children: ReactNode;
   href?: string;
+  target?: string;
+  rel?: string;
   className?: string;
 }
 
@@ -23,10 +15,14 @@ export default function GradientButton({
   variant = "outline",
   children,
   href,
-  className = "",
+  target,
+  rel,
   type = "button",
+  className = "",
   ...buttonProps
 }: GradientButtonProps) {
+  const { navigateTo } = usePageTransition();
+
   const baseStyles = `relative inline-flex min-w-30 cursor-pointer items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#5851db] ${className}`;
 
   const outlineStyles = `gradient-button-outline ${baseStyles} text-gray-900 `;
@@ -36,8 +32,32 @@ export default function GradientButton({
   const styles = variant === "outline" ? outlineStyles : backgroundStyles;
 
   if (href) {
+    const isExternal = /^(https?:|mailto:|tel:)/.test(href) || target === "_blank";
+
+    // External links
+    if (isExternal) {
+      return (
+        <a
+          href={href}
+          target={target}
+          rel={target === "_blank" ? (rel ?? "noopener noreferrer") : rel}
+          className={styles}
+        >
+          <span className="relative z-10">{children}</span>
+        </a>
+      );
+    }
+
+    // internal links
     return (
-      <Link href={href} className={styles}>
+      <Link
+        href={href}
+        onClick={(e) => {
+          e.preventDefault();
+          navigateTo(href);
+        }}
+        className={styles}
+      >
         <span className="relative z-10">{children}</span>
       </Link>
     );
@@ -48,4 +68,15 @@ export default function GradientButton({
       <span className="relative z-10">{children}</span>
     </button>
   );
+}
+
+// eg
+{
+  /* 
+  
+<GradientButton variant="background" href="/contact" className="">
+  Book a Strategy Call
+</GradientButton> 
+
+*/
 }
