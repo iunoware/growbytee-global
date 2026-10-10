@@ -126,8 +126,8 @@ export default function TransitionProvider({
             ref={(el) => {
               colRefs.current[idx] = el;
             }}
-            // className="absolute top-0 h-full bg-linear-to-t from-[#084724] to-[#0D6B36] will-change-transform"
-            className="absolute top-0 h-full bg-[#0D6B36] will-change-transform"
+            className="absolute top-0 h-full bg-linear-to-t from-[#084724] to-[#0D6B36] will-change-transform"
+            // className="absolute top-0 h-full bg-[#0D6B36] will-change-transform"
             style={{
               left: `${(idx * 100) / column}%`,
               width: `calc(${100 / column}% + 1px)`, // 1px overlap hides the seams
