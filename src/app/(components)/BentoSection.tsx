@@ -373,7 +373,6 @@ export default function BentoSection() {
           </article>
 
           {/* Testimonials card */}
-          {/* Testimonials card */}
           <article className="bento-card marketing-bento-card relative min-h-72 overflow-hidden rounded-2xl bg-[#D2D9F9] shadow-[0_4px_12px_rgba(0,0,0,0.14)] lg:row-span-4 lg:min-h-0">
             {/* Moving testimonials viewport */}
             <div className="absolute inset-x-5 top-0 bottom-0 overflow-hidden sm:inset-x-6">

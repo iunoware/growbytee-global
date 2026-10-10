@@ -4,6 +4,7 @@ import AboutStory from "./(components)/AboutStory";
 import MissionVision from "./(components)/MissionVision";
 import OurImpact from "./(components)/OurImpact";
 import TrustedBy from "./(components)/TrustedBy";
+import TestimonialSection from "./(components)/TestimonialSection";
 
 export default function OurWorks() {
   return (
@@ -13,6 +14,7 @@ export default function OurWorks() {
       <MissionVision />
       <OurImpact />
       <TrustedBy />
+      <TestimonialSection />
       <CTASection />
     </>
   );
