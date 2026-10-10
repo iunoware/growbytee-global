@@ -30,7 +30,9 @@ export default function CreativeUniverse() {
           </p>
 
           <div className="mt-7">
-            <GradientButton variant="background">Explore Our Work</GradientButton>
+            <GradientButton href="/our-works" variant="background">
+              Explore Our Work
+            </GradientButton>
           </div>
         </div>
       </div>

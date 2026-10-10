@@ -13,6 +13,9 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 export default function CTASection() {
   const sectionRef = useRef<HTMLElement>(null);
 
+  const message = "Hi, I am ____, and I would like to book a strategy call.";
+  const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+
   useGSAP(
     () => {
       const prefersReducedMotion = window.matchMedia(
@@ -98,7 +101,12 @@ export default function CTASection() {
           </p>
 
           <div className="cta-reveal mt-8">
-            <GradientButton variant="background" href="/">
+            <GradientButton
+              variant="background"
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Book a Free Strategy Call
             </GradientButton>
           </div>

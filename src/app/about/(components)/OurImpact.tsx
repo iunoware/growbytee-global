@@ -9,10 +9,10 @@ import GradientText from "@/src/components/ui/GradientText";
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const stats = [
-  { value: 150, suffix: "+", decimals: 0, label: "Happy Clients" },
+  { value: 180, suffix: "+", decimals: 0, label: "Happy Clients" },
   { value: 320, suffix: "+", decimals: 0, label: "Projects Delivered" },
   { value: 2.5, suffix: "M+", decimals: 1, label: "Audience Reached" },
-  { value: 97, suffix: "%", decimals: 0, label: "Client Satisfaction" },
+  { value: 100, suffix: "%", decimals: 0, label: "Client Satisfaction" },
 ];
 
 export default function OurImpact() {

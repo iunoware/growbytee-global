@@ -17,6 +17,9 @@ export default function Hero() {
   const [isPlaying, setIsPlaying] = useState(true);
   // const [showPauseFeedback, setShowPauseFeedback] = useState(false);
 
+  const message = "Hi, I am ____, and I would like to book a strategy call.";
+  const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+
   async function handlePlayToggle() {
     const video = videoRef.current;
 
@@ -124,11 +127,16 @@ export default function Hero() {
             reach, generate qualified leads, and drive measurable growth.
           </p>
           <div className="hero-fade mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <GradientButton variant="outline" href="/">
+            <GradientButton variant="outline" href="/our-works">
               Explore Success Stories
             </GradientButton>
 
-            <GradientButton variant="background" href="/">
+            <GradientButton
+              variant="background"
+              target="_blank"
+              rel="noopener noreferrer"
+              href={whatsappUrl}
+            >
               Book a Strategy Call
             </GradientButton>
 

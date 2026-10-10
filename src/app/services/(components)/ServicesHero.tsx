@@ -5,7 +5,8 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import GradientText from "@/src/components/ui/GradientText";
-import Button from "@/src/components/ui/Button";
+// import Button from "@/src/components/ui/Button";
+import GradientButton from "@/src/components/ui/GradientButton";
 
 gsap.registerPlugin(useGSAP);
 
@@ -82,9 +83,9 @@ export default function ServicesHero() {
         <div className="relative overflow-hidden rounded-2xl">
           {/* top half circle */}
           <div className="absolute -top-48 left-1/2 z-30 h-110 md:h-100 w-[180%] md:w-[120%] -translate-x-1/2 rounded-[50%] bg-bg">
-            <h2 className="absolute bottom-10 left-1/2 w-full -translate-x-1/2 px-4 text-center text-3xl font-bold text-black">
+            <h1 className="absolute bottom-10 left-1/2 w-full -translate-x-1/2 px-4 text-center text-3xl font-bold text-black">
               A–Z of <GradientText>Digital Growth</GradientText>
-            </h2>
+            </h1>
           </div>
 
           {/* image carousel */}
@@ -125,7 +126,10 @@ export default function ServicesHero() {
                 explore everything we do to help your brand attract, engage, convert, and
                 grow.
               </p>
-              <Button type="outline" text="Talk to Our Team" />
+              {/* <Button type="outline" text="Talk to Our Team" href="contact" /> */}
+              <GradientButton href="/contact" variant="outline">
+                Talk to Our Team
+              </GradientButton>
             </div>
           </div>
 

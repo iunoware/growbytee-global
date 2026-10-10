@@ -69,11 +69,12 @@ export default function FAQ() {
                       {faq.question}
                     </span>
                     <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white shadow-md">
-                      <div className="relative h-5 w-5 invert rotate-270">
+                      <div className={`relative h-5 w-5 invert rotate-270 `}>
                         <Image
                           src="/images/menu-arrow.svg"
                           alt="seo agency tamil nadu"
                           fill
+                          className={`${isOpen ? "rotate-180" : ""} transition duration-300`}
                         />
                       </div>
                     </span>
