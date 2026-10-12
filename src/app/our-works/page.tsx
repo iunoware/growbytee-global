@@ -2,6 +2,13 @@ import CTASection from "@/src/components/CTASection";
 import PageHero from "@/src/components/molecule/PageHero";
 import WorksGrid from "./(components)/WorksGrid";
 import { whatsappUrl } from "@/src/lib/data";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Works | Digital Marketing Agency Tamil Nadu | Growbytee Global",
+  description:
+    "See how our online marketing agency drives leads for Tamil Nadu brands with local SEO, Meta ads, Instagram marketing and content that converts.",
+};
 
 export default function OurWorks() {
   return (
