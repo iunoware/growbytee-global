@@ -5,6 +5,7 @@ import Image from "next/image";
 import GradientButton from "./ui/GradientButton";
 import NewsletterForm from "@/src/components/molecule/NewsLetterForm";
 import { usePageTransition } from "./molecule/TransitionProvider";
+import { email, phoneNumber1, phoneNumber2, whatsappUrl } from "../lib/data";
 
 const footerLinks = [
   {
@@ -26,6 +27,11 @@ const footerLinks = [
 ];
 
 const socialLinks = [
+  {
+    label: "Email",
+    href: `https://mail.google.com/mail/?view=cm&fs=1&to=${email}`,
+    icon: MailIcon,
+  },
   {
     label: "Instagram",
     href: "https://www.instagram.com/growbytee_global",
@@ -76,7 +82,6 @@ function MarqueeGroup() {
           key={item.id}
           className="flex shrink-0 items-center gap-8 pr-8 sm:gap-10 sm:pr-10 lg:gap-12 lg:pr-12"
         >
-          {/* <span className="h-4 w-4 rounded-full bg-[#171717] sm:h-5 sm:w-5" /> */}
           <div className="h-4 w-4 relative">
             <Image alt="Growbytee" src="/images/black-dot.svg" fill />
           </div>
@@ -151,7 +156,9 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="flex flex-col items-start md:items-end">
-            <GradientButton variant="background">Book a Strategy Call</GradientButton>
+            <GradientButton variant="background" href={whatsappUrl}>
+              Book a Strategy Call
+            </GradientButton>
 
             <address className="mt-4 max-w-56 text-left text-xs leading-relaxed not-italic text-white/80 md:text-right">
               No.248A, first floor, AV Complex, Thiruchendur Main Road,
@@ -160,6 +167,42 @@ export default function Footer() {
               <br />
               Palayamkottai, Tamil Nadu 627002
             </address>
+
+            {/* phone number */}
+            <div className="mt-4 max-w-64 text-left text-sm leading-relaxed not-italic text-white/80 md:text-right">
+              <div>
+                Contact:{" "}
+                <a
+                  href={`tel:+91${phoneNumber1}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {phoneNumber1.slice(0, 5)} {phoneNumber1.slice(5, 11)}
+                </a>
+                ,{" "}
+                <a
+                  href={`tel:+91${phoneNumber2}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {phoneNumber2.slice(0, 5)} {phoneNumber2.slice(5, 11)}
+                </a>
+              </div>
+            </div>
+
+            {/* email */}
+            {/* <div className="mt-2 max-w-56 text-left text-sm leading-relaxed not-italic text-white/80 md:text-right">
+              <div>
+                mail:{" "}
+                <a
+                  href={`https://mail.google.com/mail/?view=cm&fs=1&to=${email}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {email}
+                </a>
+              </div>
+            </div> */}
 
             <div className="mt-5 pb-10 md:pb-1 flex items-center gap-3">
               {socialLinks.map(({ label, href, icon: Icon }) => (
@@ -232,6 +275,14 @@ function XIcon({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
       <path d="M18.9 2H22l-6.77 7.74L23.2 22h-6.24l-4.89-6.39L6.48 22H3.36l7.25-8.29L2.96 2H9.36l4.42 5.84L18.9 2Zm-1.1 17.85h1.72L8.43 4.04H6.58L17.8 19.85Z" />
+    </svg>
+  );
+}
+
+function MailIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z" />
     </svg>
   );
 }

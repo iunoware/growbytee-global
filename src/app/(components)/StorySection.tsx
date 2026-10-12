@@ -13,36 +13,42 @@ const industries = [
     alt: "Politics",
     gradient: "from-[#ff4d5f] via-[#ff783f] to-[#ffc92f]",
     images: "mike-2.svg",
+    href: "",
   },
   {
     title: "Bakery",
     alt: "Bakery",
     gradient: "from-[#96c8ff] via-[#9ce4ec] to-[#63e7d6]",
     images: "cake.svg",
+    href: "",
   },
   {
     title: "Restaurant",
     alt: "Restaurant",
     gradient: "from-[#ffe500] via-[#dfe000] to-[#83b500]",
     images: "chef-hat.svg",
+    href: "",
   },
   {
     title: "Constructions",
     alt: "Constructions",
     gradient: "from-[#202828] via-[#283030] to-[#373b3c]",
     images: "helmet.svg",
+    href: "",
   },
   {
     title: "Saloon",
     alt: "Saloon",
     gradient: "from-[#ff6570] via-[#f89ca6] to-[#f9d6c2]",
     images: "hair-saloon.svg",
+    href: "",
   },
   {
     title: "See more",
     alt: "See More",
     gradient: "from-[#a99be7] via-[#c3a8e2] to-[#efb5cf]",
     images: "see-more.svg",
+    href: "/services",
   },
 ];
 
@@ -78,28 +84,60 @@ export default function StorySection() {
               key={industry.title}
               className="story-coin group min-w-32.5 shrink-0 text-center lg:min-w-0 "
             >
-              <div className="story-coin-outline relative isolate mx-auto flex h-32 w-32 items-center justify-center rounded-full p-0.75 transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-[1.03] sm:h-34 sm:w-34">
-                <div
-                  className={`relative z-10 flex h-full w-full items-center justify-center rounded-full bg-linear-to-br ${industry.gradient}`}
-                >
-                  <div
-                    className={`relative ${
-                      industry.title === "See more" ? "h-12 w-12" : "h-20 w-20"
-                    }`}
+              {industry.title === "See more" ? (
+                <div>
+                  <a
+                    href={industry.href}
+                    className="story-coin-outline relative isolate mx-auto flex h-32 w-32 items-center justify-center rounded-full p-0.75 transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-[1.03] sm:h-34 sm:w-34"
                   >
-                    <Image
-                      alt={industry.alt}
-                      src={`/images/${industry.images}`}
-                      fill
-                      className="object-contain drop-shadow-lg drop-shadow-gray-50/20"
-                    />
-                  </div>
-                </div>
-              </div>
+                    <div
+                      className={`relative z-10 flex h-full w-full items-center justify-center rounded-full bg-linear-to-br ${industry.gradient}`}
+                    >
+                      <div
+                        className={`relative ${
+                          industry.title === "See more" ? "h-12 w-12" : "h-20 w-20"
+                        }`}
+                      >
+                        <Image
+                          alt={industry.alt}
+                          src={`/images/${industry.images}`}
+                          fill
+                          className="object-contain drop-shadow-lg drop-shadow-gray-50/20"
+                        />
+                      </div>
+                    </div>
+                  </a>
 
-              <h3 className="mt-4 text-base font-medium text-neutral-950 sm:text-lg">
-                {industry.title}
-              </h3>
+                  <h3 className="mt-4 text-base font-medium text-neutral-950 sm:text-lg">
+                    {industry.title}
+                  </h3>
+                </div>
+              ) : (
+                <div>
+                  <div className="story-coin-outline relative isolate mx-auto flex h-32 w-32 items-center justify-center rounded-full p-0.75 transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-[1.03] sm:h-34 sm:w-34">
+                    <div
+                      className={`relative z-10 flex h-full w-full items-center justify-center rounded-full bg-linear-to-br ${industry.gradient}`}
+                    >
+                      <div
+                        className={`relative ${
+                          industry.title === "See more" ? "h-12 w-12" : "h-20 w-20"
+                        }`}
+                      >
+                        <Image
+                          alt={industry.alt}
+                          src={`/images/${industry.images}`}
+                          fill
+                          className="object-contain drop-shadow-lg drop-shadow-gray-50/20"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <h3 className="mt-4 text-base font-medium text-neutral-950 sm:text-lg">
+                    {industry.title}
+                  </h3>
+                </div>
+              )}
             </article>
           ))}
         </div>

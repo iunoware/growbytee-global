@@ -1,6 +1,7 @@
 import CTASection from "@/src/components/CTASection";
 import PageHero from "@/src/components/molecule/PageHero";
 import WorksGrid from "./(components)/WorksGrid";
+import { whatsappUrl } from "@/src/lib/data";
 
 export default function OurWorks() {
   return (
@@ -10,6 +11,9 @@ export default function OurWorks() {
         title="Creating What Makes"
         highlight="Brands Grow"
         description="Explore our campaigns, creative work, branding, and digital experiences crafted to capture attention, strengthen brands, and drive meaningful results."
+        href="/services"
+        gradientButtonText="Explore our services"
+        whatsappUrl={whatsappUrl}
       />
       <WorksGrid />
       <CTASection />

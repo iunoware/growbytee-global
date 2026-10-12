@@ -18,7 +18,7 @@ export default function MissionVision() {
         </LineFadeIn>
 
         {/* decorative circle */}
-        <div className="absolute -right-10 -bottom-24 size-72 rounded-full bg-white" />
+        {/* <div className="absolute -right-10 -bottom-24 size-72 rounded-full bg-white" /> */}
       </div>
 
       {/* Vision */}

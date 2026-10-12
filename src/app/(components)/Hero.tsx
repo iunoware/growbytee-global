@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 import GradientButton from "@/src/components/ui/GradientButton";
 // import {} from "@heroicons/react/24/outline";
 import { PlayIcon, SpeakerWaveIcon, SpeakerXMarkIcon } from "@heroicons/react/24/solid";
+import { whatsappUrl } from "@/src/lib/data";
 
 gsap.registerPlugin(useGSAP);
 
@@ -17,8 +18,8 @@ export default function Hero() {
   const [isPlaying, setIsPlaying] = useState(true);
   // const [showPauseFeedback, setShowPauseFeedback] = useState(false);
 
-  const message = "Hi, I am ____, and I would like to book a strategy call.";
-  const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+  // const message = "Hi, I am ____, and I would like to book a strategy call.";
+  // const whatsappUrl = `https://wa.me/91${phoneNumber1}?text=${encodeURIComponent(message)}`;
 
   async function handlePlayToggle() {
     const video = videoRef.current;

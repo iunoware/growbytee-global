@@ -1,3 +1,4 @@
+import CTASection from "@/src/components/CTASection";
 import ChallengeSection from "./(components)/ChallengeSection";
 import HowWeDeliver from "./(components)/HowWeDeliver";
 import MoreThanMarketing from "./(components)/MoreThanMarketing";
@@ -10,6 +11,7 @@ export default function OurWorks() {
       <HowWeDeliver />
       <ChallengeSection />
       <MoreThanMarketing />
+      <CTASection />
     </>
   );
 }
