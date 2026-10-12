@@ -11,6 +11,7 @@ gsap.registerPlugin(useGSAP);
 
 export default function OrbitGallery({
   images,
+  alts,
   radiusX = 520,
   radiusY = 260,
   imageWidth = 180,
@@ -147,7 +148,8 @@ export default function OrbitGallery({
             imageRefs.current[index] = element;
           }}
           src={image}
-          alt={`Creative work ${index + 1}`}
+          // alt={`Creative work ${index + 1}`}
+          alt={alts[index] ?? `Creative work ${index + 1}`}
           width={imageWidth}
           height={imageHeight}
           className="orbit-image"
