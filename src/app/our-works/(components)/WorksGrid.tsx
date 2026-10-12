@@ -3,15 +3,36 @@ import Image from "next/image";
 
 // Add, remove or edit projects here, the grid updates automatically.
 const works = [
-  { title: "Page3 Saloon", image: "/images/digital-marketing-agency-tirunelveli.webp" },
-  { title: "Rachnasbeauty", image: "/images/digital-marketing-company.webp" },
-  { title: "Chopstix", image: "/images/social-media-marketing-tirunelveli.webp" },
+  {
+    title: "Page3 Saloon",
+    image: "/images/our-works/digital-marketing-agency-tirunelveli.webp",
+    alt: "digital marketing services",
+  },
+  {
+    title: "Rachnasbeauty",
+    image: "/images/our-works/digital-marketing-company.webp",
+    alt: "online marketing agency",
+  },
+  {
+    title: "Chopstix",
+    image: "/images/our-works/social-media-marketing-tirunelveli.webp",
+    alt: "digital growth agency",
+  },
   {
     title: "RSK Glass tech Interior",
-    image: "/images/web-development-company-tirunelveli.webp",
+    image: "/images/our-works/web-development-company-tirunelveli.webp",
+    alt: "digital marketing company india",
   },
-  { title: "Metro Masala", image: "/images/search-engine-optimization-services.webp" },
-  { title: "Sisters Bake-O-Land", image: "/images/technical-seo-services.webp" },
+  {
+    title: "Metro Masala",
+    image: "/images/our-works/search-engine-optimization-services.webp",
+    alt: "full service digital marketing agency",
+  },
+  {
+    title: "Sisters Bake-O-Land",
+    image: "/images/our-works/technical-seo-services.webp",
+    alt: "digital marketing solutions",
+  },
 ];
 
 export default function WorksGrid() {
@@ -26,7 +47,7 @@ export default function WorksGrid() {
             >
               <Image
                 src={work.image}
-                alt={work.title}
+                alt={work.alt}
                 fill
                 sizes="(max-width: 640px) 100vw, 50vw"
                 className="object-cover transition-transform duration-800 ease-out group-hover:scale-110"

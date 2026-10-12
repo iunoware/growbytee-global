@@ -266,15 +266,26 @@ export default function Hero() {
       });
 
       // 6. images pop in one after another, after all the text is done
+      // tl.fromTo(
+      //   ".img-1",
+      //   { opacity: 0, y: 60, scale: 0.8 },
+      //   { opacity: 1, y: 0, scale: 1, ease: "none", duration: 1 },
+      //   ">",
+      // ).fromTo(
+      //   ".img-2",
+      //   { opacity: 0, y: 60, scale: 0.8 },
+      //   { opacity: 1, y: 0, scale: 1, ease: "none", duration: 1 },
+      //   ">",
+      // );
       tl.fromTo(
         ".img-1",
-        { opacity: 0, y: 60, scale: 0.8 },
-        { opacity: 1, y: 0, scale: 1, ease: "none", duration: 1 },
+        { opacity: 0, scale: 0 },
+        { opacity: 1, scale: 1, ease: "back.out(1.7)", duration: 0.3 },
         ">",
       ).fromTo(
         ".img-2",
-        { opacity: 0, y: 60, scale: 0.8 },
-        { opacity: 1, y: 0, scale: 1, ease: "none", duration: 1 },
+        { opacity: 0, scale: 0 },
+        { opacity: 1, scale: 1, ease: "back.out(1.7)", duration: 0.3 },
         ">",
       );
     },
@@ -331,7 +342,7 @@ export default function Hero() {
         <div className="img-1 absolute top-88 left-10 h-60 w-52 rotate-[8deg] overflow-hidden rounded-3xl opacity-0 md:top-32 md:right-32 md:left-auto md:h-96 md:w-72">
           <Image
             src="/images/google-business-profile-optimization.webp"
-            alt="Team brainstorming with sticky notes"
+            alt="local business seo"
             fill
             className="object-cover"
           />
@@ -340,7 +351,7 @@ export default function Hero() {
         <div className="img-2 absolute top-120 right-10 h-56 w-56 rotate-[-8deg] overflow-hidden rounded-3xl opacity-0 md:top-104 md:right-12 md:h-80 md:w-80">
           <Image
             src="/images/search-engine-marketing.webp"
-            alt="Developer working at a desk"
+            alt="seo company india"
             fill
             className="object-cover"
           />

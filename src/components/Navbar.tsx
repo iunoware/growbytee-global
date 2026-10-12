@@ -664,7 +664,7 @@ export default function Navbar() {
           >
             <Image
               src="/images/menu-arrow.svg"
-              alt=""
+              alt="digital marketing agency"
               fill
               sizes="80px"
               className="object-contain object-left"

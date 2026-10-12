@@ -2,13 +2,14 @@
 
 import GradientButton from "@/src/components/ui/GradientButton";
 import OrbitGallery from "./OrbitGallery";
-import { galleryImages } from "./gallery-data";
+import { galleryImages, galleryImagesAlt } from "./gallery-data";
 
 export default function CreativeUniverse() {
   return (
     <section className="relative w-full overflow-hidden bg-[#f7f7f7]">
       <OrbitGallery
         images={galleryImages}
+        alts={galleryImagesAlt}
         radiusX={520}
         radiusY={250}
         imageWidth={180}
