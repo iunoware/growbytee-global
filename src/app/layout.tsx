@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   title: "Growbytee Global Private Limited",
 
   description:
-    "Growbytee Global Private Limited is a Tirunelveli-based digital marketing agency serving businesses worldwide with SEO, social media marketing, branding, web development, AI automation, and innovative growth solutions.",
+    "Growbytee Global Private Limited is a Tamil Nadu-based digital marketing agency serving businesses worldwide with SEO, social media marketing, branding, web development, AI automation, and innovative growth solutions.",
 
   icons: {
     icon: { url: "/images/growbytee_fav_icon.png", sizes: "16x16", type: "image/png" },
