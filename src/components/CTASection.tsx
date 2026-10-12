@@ -7,14 +7,15 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
 import GradientButton from "@/src/components/ui/GradientButton";
+import { whatsappUrl } from "../lib/data";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function CTASection() {
   const sectionRef = useRef<HTMLElement>(null);
 
-  const message = "Hi, I am ____, and I would like to book a strategy call.";
-  const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+  // const message = "Hi, I am ____, and I would like to book a strategy call.";
+  // const whatsappUrl = `https://wa.me/91${phoneNumber1}?text=${encodeURIComponent(message)}`;
 
   useGSAP(
     () => {

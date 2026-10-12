@@ -117,7 +117,7 @@ export default function ServicesHero() {
 
           {/* bottom half circle */}
           <div className="absolute -bottom-48 left-1/2 z-30 h-130 md:h-100 w-[180%] md:w-[120%] -translate-x-1/2 rounded-[50%] bg-bg">
-            <div className="absolute md:pt-0 pt-8 top-8 left-1/2 flex w-full max-w-2xl -translate-x-1/2 flex-col items-center gap-3 px-4 text-center">
+            <div className="absolute md:pt-0 pt-8 top-8 left-1/2 flex w-full max-w-sm md:max-w-lg -translate-x-1/2 flex-col items-center gap-3 px-4 text-center">
               <h2 className="text-2xl font-bold text-black">
                 Every Channel. One Growth Strategy.
               </h2>
@@ -126,7 +126,6 @@ export default function ServicesHero() {
                 explore everything we do to help your brand attract, engage, convert, and
                 grow.
               </p>
-              {/* <Button type="outline" text="Talk to Our Team" href="contact" /> */}
               <GradientButton href="/contact" variant="outline">
                 Talk to Our Team
               </GradientButton>
