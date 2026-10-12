@@ -157,7 +157,7 @@ export default function ProcessSection() {
             >
               Let&apos;s Grow Your Brand
             </a> */}
-            <GradientButton variant="background" className="mt-3">
+            <GradientButton variant="background" href="/contact" className="mt-3">
               Let&apos; Grow your brand
             </GradientButton>
           </div>

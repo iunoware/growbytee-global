@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -19,6 +19,11 @@ import { HeartIcon as HeartSolidIcon } from "@heroicons/react/24/solid";
 type LikePosition = {
   x: number;
   y: number;
+};
+
+type Analytics = {
+  title: string;
+  subTitle: string;
 };
 
 const testimonials = [
@@ -45,11 +50,32 @@ const testimonials = [
   },
 ];
 
+const analytics: Analytics[] = [
+  { title: "Qualified Leads", subTitle: "486+ Leads" },
+  { title: "Conversion Rate", subTitle: "6.8% CVR" },
+  { title: "Revenue Generated", subTitle: "₹12.8 Lakhs" },
+];
+
 export default function BentoSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const testimonialTrackRef = useRef<HTMLDivElement>(null);
+  const analyticsContentRef = useRef<HTMLDivElement>(null);
+
   const [isLiked, setIsLiked] = useState(false);
   const [likePosition, setLikePosition] = useState<LikePosition | null>(null);
+  const [analyticsIndex, setAnalyticsIndex] = useState(0);
+  const currentAnalytics = analytics[analyticsIndex];
+
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        analyticsContentRef.current,
+        { y: 16, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
+      );
+    },
+    { dependencies: [analyticsIndex], scope: sectionRef },
+  );
 
   useGSAP(
     () => {
@@ -140,6 +166,14 @@ export default function BentoSection() {
       setLikePosition(null);
     }, 700);
   }
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setAnalyticsIndex((prev) => (prev + 1) % analytics.length);
+    }, 2000);
+
+    return () => window.clearInterval(id); // cleanup on unmount
+  }, []);
 
   return (
     <section ref={sectionRef} className="overflow-hidden bg-bg py-16 sm:py-20 lg:py-24">
@@ -457,15 +491,22 @@ export default function BentoSection() {
                 <p className="text-sm font-bold sm:text-base">Analytics</p>
               </div>
 
-              <h3 className="mt-7 text-2xl font-bold sm:text-3xl">Qualified Leads</h3>
+              <div ref={analyticsContentRef} className="mt-7 flex flex-1 flex-col">
+                <h3 className="mt-7 text-2xl font-bold sm:text-3xl">
+                  {/* Qualified Leads */}
+                  {currentAnalytics.title}
+                  {/* {analytics[analyticsIndex].title} */}
+                </h3>
 
-              <p
-                data-counter="486"
-                data-suffix="+ Leads"
-                className="mt-auto self-end text-2xl font-bold sm:text-3xl"
-              >
-                486+ Leads
-              </p>
+                <p
+                  data-counter="486"
+                  data-suffix="+ Leads"
+                  className="mt-auto self-end text-2xl font-bold sm:text-3xl"
+                >
+                  {/* 486+ Leads */}
+                  {currentAnalytics.subTitle}
+                </p>
+              </div>
             </div>
 
             <div className="-bottom-14 -right-10 -rotate-6 absolute">

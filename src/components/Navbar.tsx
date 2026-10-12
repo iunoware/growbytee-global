@@ -714,7 +714,7 @@ export default function Navbar() {
                       navigateTo(link.href);
                     }}
                     tabIndex={isMenuOpen ? 0 : -1}
-                    className={`group flex items-center justify-between py-3 text-[clamp(2rem,4vw,5rem)] leading-none font-normal tracking-[-0.055em] transition-colors duration-300 sm:py-4 ${
+                    className={`group inline-flex items-center justify-between py-3 text-[clamp(2rem,4vw,5rem)] leading-none font-normal tracking-[-0.055em] transition-colors duration-300 sm:py-4 ${
                       isActive ? "text-[#52cb7c]" : "text-[#f4f4f4] hover:text-[#52cb7c]"
                     }`}
                   >
