@@ -17,7 +17,7 @@ const faqs = [
     tags: ["Content Strategy", "Community Growth", "Brand Engagement"],
     description:
       "Create meaningful content that captures attention, sparks conversations, builds lasting communities, and transforms your social media presence into a powerful platform for brand awareness, customer engagement, and long-term business growth.",
-    href: "/",
+    href: "/contact",
     bgColor: "bg-[#feeacd]",
   },
   {
@@ -26,7 +26,7 @@ const faqs = [
     tags: ["Meta Ads", "Google Ads", "Conversion Optimisation"],
     description:
       "Reach the right audience at the right time with high-performing Meta and Google Ads campaigns designed to generate qualified leads, increase conversions, maximize return on investment, and deliver measurable business growth through continuous optimisation and data-driven decision making.",
-    href: "/",
+    href: "/contact",
     bgColor: "bg-[#d2d9f9]",
   },
   {
@@ -35,7 +35,7 @@ const faqs = [
     tags: ["Professional Reels", "Photography & Videography", "Brand Visual Design"],
     description:
       "Bring your brand to life with compelling visual storytelling that captures attention and leaves a lasting impression. From professional reels, commercial photography, and cinematic videos to branded graphics, motion design, and marketing creatives.",
-    href: "/",
+    href: "/contact",
     bgColor: "bg-[#f4d7e7]",
   },
   {
@@ -44,7 +44,7 @@ const faqs = [
     tags: ["Performance Tracking", "Campaign Optimisation", "Data-Driven Insights"],
     description:
       "Make smarter marketing decisions with real-time insights and continuous performance analysis. We track every campaign, monitor key performance indicators, measure audience behaviour, and optimize strategies using accurate data to improve engagement",
-    href: "/",
+    href: "/contact",
     bgColor: "bg-[#fecdcd]",
   },
 ];

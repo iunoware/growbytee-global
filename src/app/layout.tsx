@@ -5,6 +5,8 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { Toaster } from "sonner";
 import TransitionProvider from "../components/molecule/TransitionProvider";
+import ScrollToTop from "../components/ScrollToTop";
+import CustomCursor from "../components/CustomCursor";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -48,6 +50,8 @@ export default function RootLayout({
       className={`${roboto.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-screen flex-col">
+        <CustomCursor />
+        <ScrollToTop />
         <TransitionProvider column={5}>
           <Navbar />
           <main className="flex-1">
