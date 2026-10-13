@@ -11,35 +11,51 @@ gsap.registerPlugin(useGSAP);
 const testimonials = [
   {
     id: 1,
-    name: "Name",
-    role: "Founder, Retail Brand",
+    name: "Fuji Solar",
+    role: "D.D. Rajesvaran",
     image: "",
     content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id beatae quo eveniet impedit rerum eos vitae iste. Velit, unde? At!",
+      "Growbytee helped us improve our online presence and reach more customers across Tamil Nadu. Great support and a smooth experience",
   },
   {
     id: 2,
-    name: "Name",
-    role: "Founder, Restaurant",
+    name: "Rachnas",
+    role: "Monika",
     image: "",
     content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id beatae quo eveniet impedit rerum eos vitae iste. Velit, unde? At!",
+      "They understood our salon business well and helped us showcase our services online. Really happy with their work!",
   },
   {
     id: 3,
-    name: "Name",
-    role: "Founder, Construction",
+    name: "Chopstix",
+    role: "Immanuel Devavaram",
     image: "",
     content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id beatae quo eveniet impedit rerum eos vitae iste. Velit, unde? At!",
+      "Great team to work with! They helped us promote our restaurant online and present our brand more professionally.",
   },
   {
     id: 4,
-    name: "Name",
-    role: "Founder, Healthcare",
+    name: "BrightSmile Dental Clinic",
+    role: "Chief Doctor",
     image: "",
     content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id beatae quo eveniet impedit rerum eos vitae iste. Velit, unde? At!",
+      "Very professional and responsive team. They helped us build a better online presence for our clinic. Highly recommended!",
+  },
+  {
+    id: 5,
+    name: "Trendora Boutique",
+    role: "Founder",
+    image: "",
+    content:
+      "Creative ideas, good communication, and quality work. Growbytee made it easier for us to promote our business online.",
+  },
+  {
+    id: 6,
+    name: "Sri Lakshmi Foods",
+    role: "Managing Director",
+    image: "",
+    content:
+      "The team was supportive throughout the process and understood our requirements well. Overall, a good experience working with them!",
   },
 ];
 
