@@ -141,6 +141,7 @@ import { useGSAP } from "@gsap/react";
 import GradientButton from "@/src/components/ui/GradientButton";
 import GrowthPreviewModal, { type GrowthPreview } from "./GrowthPreviewModal";
 import { whatsappUrl } from "../lib/data";
+import GradientText from "./ui/GradientText";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -223,9 +224,10 @@ export default function CTASection() {
               />
 
               {/* Gradient text */}
-              <span className="relative z-10 bg-linear-to-r from-[#5851db] via-[#FD1D1D] to-[#FCAF45] bg-clip-text font-semibold text-transparent">
+              {/* <span className="relative z-10 bg-linear-to-r from-[#5851db] via-[#FD1D1D] to-[#FCAF45] bg-clip-text font-semibold text-transparent">
                 Your
-              </span>
+              </span> */}
+              <GradientText className="font-semibold relative">Your</GradientText>
 
               {/* Arrow SVG */}
               <Image

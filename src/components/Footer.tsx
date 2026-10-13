@@ -161,11 +161,11 @@ export default function Footer() {
             </GradientButton>
 
             <address className="mt-4 max-w-56 text-left text-xs leading-relaxed not-italic text-white/80 md:text-right">
-              No.248A, first floor, AV Complex, Thiruchendur Main Road,
+              No.248A, 1st floor, AV Complex, Thiruchendur Main Road,
               <br />
-              Murugan kurichi, Tirunelveli,
+              Murugan kurichi, Palayamkottai,
               <br />
-              Palayamkottai, Tamil Nadu 627002
+              Tirunelveli - 627002, Tamil Nadu.
             </address>
 
             {/* phone number */}

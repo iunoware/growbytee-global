@@ -3,43 +3,43 @@ import Image from "next/image";
 
 const logos = [
   {
-    src: "/images/client-logos/client-2.png",
+    src: "/images/client-logos/chopstix.png",
     alt: "Digital marketing company in Tirunelveli",
   },
   {
-    src: "/images/client-logos/client-1.png",
+    src: "/images/client-logos/fuji.png",
     alt: "Digital marketing company in Tirunelveli",
   },
   {
-    src: "/images/client-logos/client-3.png",
+    src: "/images/client-logos/irish-cafe.png",
     alt: "Digital marketing company in Tirunelveli",
   },
   {
-    src: "/images/client-logos/client-4.png",
+    src: "/images/client-logos/metro.png",
     alt: "Digital marketing company in Tirunelveli",
   },
   {
-    src: "/images/client-logos/client-1.png",
+    src: "/images/client-logos/rachnas.png",
     alt: "Digital marketing company in Tirunelveli",
   },
   {
-    src: "/images/client-logos/client-2.png",
+    src: "/images/client-logos/rathan.png",
     alt: "Digital marketing company in Tirunelveli",
   },
   {
-    src: "/images/client-logos/client-3.png",
+    src: "/images/client-logos/redinn.png",
     alt: "Digital marketing company in Tirunelveli",
   },
   {
-    src: "/images/client-logos/client-4.png",
+    src: "/images/client-logos/rsk.png",
     alt: "Digital marketing company in Tirunelveli",
   },
   {
-    src: "/images/client-logos/client-1.png",
+    src: "/images/client-logos/sai.png",
     alt: "Digital marketing company in Tirunelveli",
   },
   {
-    src: "/images/client-logos/client-2.png",
+    src: "/images/client-logos/sisters-bake-o-land.png",
     alt: "Digital marketing company in Tirunelveli",
   },
 ];
