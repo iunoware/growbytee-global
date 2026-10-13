@@ -7,6 +7,7 @@ import GradientButton from "@/src/components/ui/GradientButton";
 // import {} from "@heroicons/react/24/outline";
 import { PlayIcon, SpeakerWaveIcon, SpeakerXMarkIcon } from "@heroicons/react/24/solid";
 import { whatsappUrl } from "@/src/lib/data";
+import GradientText from "@/src/components/ui/GradientText";
 
 gsap.registerPlugin(useGSAP);
 
@@ -119,9 +120,10 @@ export default function Hero() {
           {/* <br className="hidden hero-fade sm:block" /> */}
           <h1 className="hero-fade text-[2.6rem] font-normal leading-[1.15] tracking-[-0.04em] text-[#2b2b2b] sm:text-5xl lg:text-[4rem] xl:text-[4.45rem]">
             Brands People{" "}
-            <span className="hero-fade bg-linear-to-r from-[#5851db] via-[#FD1D1D] to-[#FCAF45] bg-clip-text font-semibold text-transparent">
+            {/* <span className="hero-fade bg-linear-to-r from-[#5851db] via-[#FD1D1D] to-[#FCAF45] bg-clip-text font-semibold text-transparent">
               Remember.
-            </span>
+            </span> */}
+            <GradientText className="font-semibold">Remember.</GradientText>
           </h1>
           <p className="hero-fade mt-6 max-w-3xl text-sm italic leading-7 text-[#333333] sm:text-base sm:leading-8">
             From viral content to high-converting ad campaigns, we help brands increase

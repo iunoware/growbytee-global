@@ -11,8 +11,8 @@ export default function Home() {
     <>
       <Hero />
       <StorySection />
-      <BentoSection />
       <CreativeUniverse />
+      <BentoSection />
       <AcademyFaq />
       <ProcessSection />
       <CTASection />

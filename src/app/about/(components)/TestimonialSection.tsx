@@ -11,51 +11,51 @@ gsap.registerPlugin(useGSAP);
 const testimonials = [
   {
     id: 1,
-    name: "Fuji Solar",
-    role: "D.D. Rajesvaran",
+    name: "Page3",
+    role: "Beauty Salon",
     image: "",
     content:
-      "Growbytee helped us improve our online presence and reach more customers across Tamil Nadu. Great support and a smooth experience",
+      "Growbytee helped us present our salon online in a more attractive way. The team was supportive and easy to work with.",
   },
   {
     id: 2,
-    name: "Rachnas",
-    role: "Monika",
+    name: "Milkyway",
+    role: "Restaurant",
     image: "",
     content:
-      "They understood our salon business well and helped us showcase our services online. Really happy with their work!",
+      "Great experience working with Growbytee! They helped us showcase our restaurant and connect with more people online.",
   },
   {
     id: 3,
-    name: "Chopstix",
-    role: "Immanuel Devavaram",
+    name: "Padmanidhi Management Services",
+    role: "Law Firm",
     image: "",
     content:
-      "Great team to work with! They helped us promote our restaurant online and present our brand more professionally.",
+      "The team understood our business requirements and delivered a professional online presence. Good communication throughout.",
   },
   {
     id: 4,
-    name: "BrightSmile Dental Clinic",
-    role: "Chief Doctor",
+    name: "Maruthiwoods ",
+    role: "Timber Exporter",
     image: "",
     content:
-      "Very professional and responsive team. They helped us build a better online presence for our clinic. Highly recommended!",
+      "Growbytee did a great job presenting our business professionally online. We appreciate their creativity and support.",
   },
   {
     id: 5,
-    name: "Trendora Boutique",
-    role: "Founder",
+    name: "Sri Amman Steels",
+    role: "Steel & Cement Distributor",
     image: "",
     content:
-      "Creative ideas, good communication, and quality work. Growbytee made it easier for us to promote our business online.",
+      "Professional service and a responsive team. They understood our needs and helped improve how our business is presented online.",
   },
   {
     id: 6,
-    name: "Sri Lakshmi Foods",
-    role: "Managing Director",
+    name: "Mamas and Papas",
+    role: "Toy Store",
     image: "",
     content:
-      "The team was supportive throughout the process and understood our requirements well. Overall, a good experience working with them!",
+      "Really happy with the creative work and support from Growbytee. They helped us engagingly showcase our products.",
   },
 ];
 

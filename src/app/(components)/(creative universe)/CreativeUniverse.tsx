@@ -3,6 +3,7 @@
 import GradientButton from "@/src/components/ui/GradientButton";
 import OrbitGallery from "./OrbitGallery";
 import { galleryImages, galleryImagesAlt } from "./gallery-data";
+import GradientText from "@/src/components/ui/GradientText";
 
 export default function CreativeUniverse() {
   return (
@@ -20,10 +21,7 @@ export default function CreativeUniverse() {
       <div className="pointer-events-none absolute pt-60 inset-0 z-10 flex items-center justify-center">
         <div className="pointer-events-auto max-w-2xl px-6 text-center">
           <h2 className="text-3xl font-bold tracking-tight text-neutral-950 md:text-5xl">
-            Explore Our Creative{" "}
-            <span className="bg-linear-to-r from-[#5851db] via-[#fd1d1d] to-[#fcaf45] bg-clip-text text-transparent">
-              Universe.
-            </span>
+            Explore Our Creative <GradientText>Universe.</GradientText>
           </h2>
 
           <p className="mt-4 text-sm text-neutral-700 md:text-base">

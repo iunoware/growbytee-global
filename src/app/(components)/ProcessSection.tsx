@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import GradientButton from "@/src/components/ui/GradientButton";
+import GradientText from "@/src/components/ui/GradientText";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -141,9 +142,7 @@ export default function ProcessSection() {
               <br />
               Experiences
               <br />
-              <span className="bg-linear-to-r from-[#5145e5] via-[#ff3131] to-[#ffad45] bg-clip-text text-transparent">
-                Meaningful
-              </span>
+              <GradientText>Meaningful</GradientText>
             </h2>
 
             <p className="mt-6 max-w-125 text-sm leading-relaxed text-neutral-700 sm:text-base">
