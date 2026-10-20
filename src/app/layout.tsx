@@ -31,6 +31,8 @@ export const metadata: Metadata = {
   },
 
   // google search console verification
+  // eg google site verification line, paste only the value
+  // google-site-verification=WAXEXNWoz0lv8QGbu0Oj13SncHaRKVRTQusX54_yfpc
   verification: {
     google: "WAXEXNWoz0lv8QGbu0Oj13SncHaRKVRTQusX54_yfpc",
   },
